@@ -35,26 +35,7 @@
 
 1. 直接打開 `index.html` 文件即可在瀏覽器中查看
 2. 無需安裝任何依賴或伺服器
-
-### 部署到網站
-
-可以將整個專案資料夾上傳到以下任一平台：
-
-#### GitHub Pages（推薦）
-1. 在 GitHub 上創建新倉庫
-2. 上傳所有文件
-3. 在倉庫設置中啟用 GitHub Pages
-4. 訪問 `https://你的用戶名.github.io/倉庫名`
-
-#### Netlify
-1. 訪問 [netlify.com](https://www.netlify.com)
-2. 拖放整個資料夾到 Netlify
-3. 獲得自動生成的網址
-
-#### Vercel
-1. 訪問 [vercel.com](https://vercel.com)
-2. 導入專案
-3. 自動部署
+3. https://friendlyjc.github.io/Quantum-Map/ 直接打開網頁
 
 ## 文件結構
 
@@ -117,4 +98,5 @@ $$e^{-iHt}|\\varphi_0\\rangle = |\\varphi_t\\rangle$$`
 ---
 
 製作於 2025 年
+
 
