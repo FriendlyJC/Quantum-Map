@@ -338,61 +338,145 @@ function showDetailPanel(itemName, isTitle = false) {
             // 尝试加载对应的电路图
             const circuitImageHtml = getCircuitImageHtml(itemName, details);
             
-            // 根据类型决定标题
-            let nameTitle = '演算法名稱：';
-            if (details.type === 'tool') {
-                nameTitle = '核心工具名稱：';
-            } else if (details.type === 'framework' || details.type === 'method') {
-                nameTitle = '題目與框架名稱：';
-            }
+            // 判断是否为通訊協議（通过检查是否有 circuit 和 process 字段，且没有 computation 字段）
+            const isCommunication = details.circuit !== undefined && details.process !== undefined && details.computation === undefined;
             
-            let contentHtml = `
-                <div class="detail-section">
-                    <h3>${nameTitle}</h3>
-                    <p id="detail-name">${details.name || '待補充'}</p>
-                </div>`;
-            
-            // 作者（如果有）
-            if (details.author) {
+            if (isCommunication) {
+                // 通訊協議的顯示架構
+                // 獲取項目的年份信息
+                let itemYear = null;
+                quantumData.categories.forEach(category => {
+                    category.subcategories.forEach(subcat => {
+                        subcat.items.forEach(item => {
+                            if (item.name === itemName) {
+                                itemYear = item.year;
+                            }
+                        });
+                    });
+                });
+                
+                // 構建主題顯示（格式：超密編碼Superdense Coding / Supercoding (1992)）
+                let topicDisplay = '';
+                if (details.goal) {
+                    topicDisplay += details.goal;
+                }
+                if (details.name) {
+                    topicDisplay += (topicDisplay ? '' : '') + details.name;
+                }
+                if (itemName && itemName !== details.name) {
+                    topicDisplay += ` / ${itemName}`;
+                }
+                if (itemYear) {
+                    topicDisplay += ` (${itemYear})`;
+                }
+                if (!topicDisplay) {
+                    topicDisplay = itemName || '待補充';
+                }
+                
+                let contentHtml = `
+                    <div class="detail-section">
+                        <h3>主題：</h3>
+                        <p id="detail-name">${topicDisplay}</p>
+                    </div>`;
+                
+                // 作者（如果有）
+                if (details.author) {
+                    contentHtml += `
+                    <div class="detail-section">
+                        <h3>作者：</h3>
+                        <p id="detail-author">${details.author}</p>
+                    </div>`;
+                }
+                
+                // 概念與目標（顯示 concept，goal 已在主題中顯示）
                 contentHtml += `
-                <div class="detail-section">
-                    <h3>作者：</h3>
-                    <p id="detail-author">${details.author}</p>
-                </div>`;
-            }
-            
-            contentHtml += `
-                <div class="detail-section">
-                    <h3>目標：</h3>
-                    <div id="detail-goal">${details.goal || '待補充'}</div>
-                </div>
-                <div class="detail-section">
-                    <h3>核心概念：</h3>
-                    <div id="detail-concept">${details.concept || '待補充'}</div>
-                </div>
-                <div class="detail-section">
-                    <h3>量子電路圖：</h3>
-                    <div id="detail-circuit" class="circuit-diagram">${circuitImageHtml}</div>
-                </div>
-                <div class="detail-section">
-                    <h3>運算過程：</h3>
-                    <div id="detail-computation">${details.computation || '待補充'}</div>
-                </div>
-                <div class="detail-section">
-                    <h3>補充：</h3>
-                    <div id="detail-supplement">${details.supplement || '待補充'}</div>
-                </div>
-                <div class="detail-section">
-                    <h3>故事介紹：</h3>
-                    <div id="detail-story">${details.story || '待補充'}</div>
-                </div>`;
-            
-            document.querySelector('.panel-content').innerHTML = contentHtml;
-            panel.classList.remove('hidden');
-            
-            // 重新渲染数学公式
-            if (typeof MathJax !== 'undefined') {
-                MathJax.typesetPromise([document.querySelector('.panel-content')]).catch((err) => console.log(err));
+                    <div class="detail-section">
+                        <h3>概念與目標：</h3>
+                        <div id="detail-concept-goal">${details.concept || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>示意圖：</h3>
+                        <div id="detail-circuit" class="circuit-diagram">${circuitImageHtml}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>詳細資訊：</h3>
+                        <div id="detail-computation">${details.process || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>故事介紹：</h3>
+                        <div id="detail-story">${details.story || '待補充'}</div>
+                    </div>`;
+                
+                document.querySelector('.panel-content').innerHTML = contentHtml;
+                panel.classList.remove('hidden');
+                
+                // 重新渲染数学公式
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.typesetPromise([document.querySelector('.panel-content')]).catch((err) => console.log(err));
+                }
+            } else {
+                // 演算法的顯示架構（原有邏輯）
+                // 根据类型决定标题
+                let nameTitle = '演算法名稱：';
+                if (details.type === 'tool') {
+                    nameTitle = '核心工具名稱：';
+                } else if (details.type === 'framework' || details.type === 'method') {
+                    nameTitle = '題目與框架名稱：';
+                }
+                
+                // 根据类型决定"量子電路圖"和"運算過程"的标题
+                const isFramework = details.type === 'framework' || details.type === 'method';
+                const circuitTitle = isFramework ? '問題概念框架圖：' : '量子電路圖：';
+                const computationTitle = isFramework ? '框架圖解釋：' : '運算過程：';
+                
+                let contentHtml = `
+                    <div class="detail-section">
+                        <h3>${nameTitle}</h3>
+                        <p id="detail-name">${details.name || '待補充'}</p>
+                    </div>`;
+                
+                // 作者（如果有）
+                if (details.author) {
+                    contentHtml += `
+                    <div class="detail-section">
+                        <h3>作者：</h3>
+                        <p id="detail-author">${details.author}</p>
+                    </div>`;
+                }
+                
+                contentHtml += `
+                    <div class="detail-section">
+                        <h3>目標：</h3>
+                        <div id="detail-goal">${details.goal || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>核心概念：</h3>
+                        <div id="detail-concept">${details.concept || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>${circuitTitle}</h3>
+                        <div id="detail-circuit" class="circuit-diagram">${circuitImageHtml}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>${computationTitle}</h3>
+                        <div id="detail-computation">${details.computation || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>補充：</h3>
+                        <div id="detail-supplement">${details.supplement || '待補充'}</div>
+                    </div>
+                    <div class="detail-section">
+                        <h3>故事介紹：</h3>
+                        <div id="detail-story">${details.story || '待補充'}</div>
+                    </div>`;
+                
+                document.querySelector('.panel-content').innerHTML = contentHtml;
+                panel.classList.remove('hidden');
+                
+                // 重新渲染数学公式
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.typesetPromise([document.querySelector('.panel-content')]).catch((err) => console.log(err));
+                }
             }
         }
     }

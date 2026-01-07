@@ -64,27 +64,27 @@ const quantumData = {
                     name: '不可複製',
                     color: 'rgba(255, 160, 100, 0.4)',
                     items: [
-                        { name: '不可複製原理', year: 1982, x: 910, y: 250 }
+                        { name: '不可複製原理', year: 1982, x: 875, y: 250 }
                     ]
                 },
                 {
                     name: '密碼學',
                     color: 'rgba(255, 160, 100, 0.3)',
                     items: [
-                        { name: '共軛編碼', year: 1983, x: 995, y: 275 },
-                        { name: 'BB84', year: 1984, x: 995, y: 300 },
-                        { name: 'E91', year: 1991, x: 995, y: 475 },
-                        { name: 'DI-QKD', year: 1991, x: 995, y: 500 },
-                        { name: 'B92', year: 1992, x: 995, y: 525 }
+                        { name: '共軛編碼', year: 1983, x: 960, y: 275 },
+                        { name: 'BB84', year: 1984, x: 960, y: 300 },
+                        { name: 'E91', year: 1991, x: 960, y: 475 },
+                        { name: 'DI-QKD', year: 2007, x: 960, y: 875 },
+                        { name: 'B92', year: 1992, x: 960, y: 500 }
                     ]
                 },
                 {
                     name: '通訊',
                     color: 'rgba(255, 160, 100, 0.4)',
                     items: [
-                        { name: 'Supercoding', year: 1992, x: 1080, y: 525 },
-                        { name: 'Teleporting', year: 1993, x: 1080, y: 550 },
-                        { name: 'Entanglement', year: 1993, x: 1080, y: 575 }
+                        { name: 'Supercoding', year: 1992, x: 1045, y: 500 },
+                        { name: 'Teleporting', year: 1993, x: 1080, y: 525 },
+                        { name: 'Entanglement', year: 1993, x: 1015, y: 525 }
                     ]
                 }
             ]
@@ -277,7 +277,104 @@ $$H = -\\sum_i h_i Z_i - \\sum_{i \\lt j} J_{ij} Z_i Z_j$$
    constant 函數 → 所有分量相位一致<br>
    balanced 函數 → 分量之間產生相位分裂<br>
 3. 透過干涉，若相位一致則表示常數函數，若不同相位則干涉抵銷表示平衡函數，從而得出資訊。<br>`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">|0⟩<sub>S</sub> |0⟩<sub>I</sub></div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">X<sub>I</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">|0⟩<sub>S</sub> |1⟩<sub>I</sub></div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sub>S</sub> ⊗ H<sub>I</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; flex-grow: 1; min-width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div><span style="font-size: 1.1em;">½</span> [ |0⟩ + |1⟩ ]<sub>S</sub> ⊗ [ |0⟩ - |1⟩ ]<sub>I</sub></div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">U<sub>f</sub> : |x⟩|y⊕f(x)⟩</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+            
+            <div>
+               <span style="color: #006400; font-weight: bold; font-size: 0.9em;">f(x)=0 (Const): </span>
+               <span style="font-size: 0.9em; color: #555;">½ [ |0⟩(|0⊕0⟩ - |1⊕0⟩) + |1⟩(|0⊕0⟩ - |1⊕0⟩) ]</span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">½ [ (|0⟩+|1⟩)<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub> ]</span>
+            </div>
+
+            <div>
+               <span style="color: #006400; font-weight: bold; font-size: 0.9em;">f(x)=1 (Const): </span>
+               <span style="font-size: 0.9em; color: #555;">½ [ |0⟩(|0⊕1⟩ - |1⊕1⟩) + |1⟩(|0⊕1⟩ - |1⊕1⟩) ]</span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">½ [ (|0⟩+|1⟩)<sub>S</sub> ⊗ (-|0⟩+|1⟩)<sub>I</sub> ]</span>
+            </div>
+
+            <div>
+               <span style="color: #00008B; font-weight: bold; font-size: 0.9em;">f(x)=x (Bal): </span>
+               <span style="font-size: 0.9em; color: #555;">½ [ |0⟩(|0⊕0⟩ - |1⊕0⟩) + |1⟩(|0⊕1⟩ - |1⊕1⟩) ]</span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">½ [ (|0⟩-|1⟩)<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub> ]</span>
+            </div>
+
+            <div>
+               <span style="color: #00008B; font-weight: bold; font-size: 0.9em;">f(x)=¬x (Bal): </span>
+               <span style="font-size: 0.9em; color: #555;">½ [ |0⟩(|0⊕1⟩ - |1⊕1⟩) + |1⟩(|0⊕0⟩ - |1⊕0⟩) ]</span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">½ [ (|0⟩-|1⟩)<sub>S</sub> ⊗ (-|0⟩+|1⟩)<sub>I</sub> ]</span>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%; padding-top: 0px;"> 
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sub>S</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+                 <div>|0⟩<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub></div>
+                 <div>|0⟩<sub>S</sub> ⊗ (-|0⟩+|1⟩)<sub>I</sub></div>
+                 <div>|1⟩<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub></div>
+                 <div>|1⟩<sub>S</sub> ⊗ (-|0⟩+|1⟩)<sub>I</sub></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">M<sub>S</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+                 <div><strong>0</strong></div>
+                 <div><strong>0</strong></div>
+                 <div><strong>1</strong></div>
+                 <div><strong>1</strong></div>
+            </div>
+        </div>
+    </div>
+</div>
+`,
             supplement: `輸入為 $x \\in \\{0,1\\}$，函數運算 $f(x)$<br>
 <br>
 <strong>常數函數：</strong>輸出結果都相同。<br>
@@ -305,7 +402,101 @@ $$H = -\\sum_i h_i Z_i - \\sum_{i \\lt j} J_{ij} Z_i Z_j$$
    constant 函數 → 所有分量相位一致<br>
    balanced 函數 → 分量之間產生相位分裂<br>
 3. 透過干涉，若相位一致則表示常數函數，若不同相位則干涉抵銷表示平衡函數，從而得出資訊。<br>`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">|0⟩<sup>⊗n</sup><sub>S</sub> |0⟩<sub>I</sub></div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">X<sub>I</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">|0⟩<sup>⊗n</sup><sub>S</sub> |1⟩<sub>I</sub></div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗n</sup><sub>S</sub> ⊗ H<sub>I</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; flex-grow: 1; min-width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div>
+                <span style="font-size: 1.1em;">1/√2ⁿ</span> [ ∑|x⟩ ]<sub>S</sub> ⊗ [ |0⟩ - |1⟩ ]<sub>I</sub>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">U<sub>f</sub> : (-1)<sup>f(x)</sup></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+            
+            <div>
+               <span style="color: #006400; font-weight: bold; font-size: 0.9em;">f(x)=0 (Const): </span>
+               <span style="font-size: 0.9em; color: #555;">1/√2ⁿ [ ∑ (+1)|x⟩ ] ... </span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">1/√2ⁿ [ ( ∑|x⟩ )<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub> ]</span>
+            </div>
+
+            <div>
+               <span style="color: #006400; font-weight: bold; font-size: 0.9em;">f(x)=1 (Const): </span>
+               <span style="font-size: 0.9em; color: #555;">1/√2ⁿ [ ∑ (-1)|x⟩ ] ... </span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">1/√2ⁿ [ ( -∑|x⟩ )<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub> ]</span>
+            </div>
+
+            <div>
+               <span style="color: #00008B; font-weight: bold; font-size: 0.9em;">f(x)=Balanced: </span>
+               <span style="font-size: 0.9em; color: #555;">1/√2ⁿ [ ∑ (-1)<sup>f(x)</sup>|x⟩ ] ... </span>
+               <span style="margin: 0 5px;">=</span> 
+               <span style="font-size: 1.1em;">1/√2ⁿ [ ( ∑ (-1)<sup>f(x)</sup>|x⟩ )<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub> ]</span>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%; padding-top: 0px;"> 
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗n</sup><sub>S</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+                 <div>|0...0⟩<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub></div>
+                 
+                 <div>- |0...0⟩<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub></div>
+                 
+                 <div>( ∑<sub>y≠0</sub> c<sub>y</sub>|y⟩ )<sub>S</sub> ⊗ (|0⟩-|1⟩)<sub>I</sub></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">M<sub>S</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 20px;">
+                 <div><strong>00...0</strong> <span style="font-size:0.8em; color:#666;">(Const)</span></div>
+                 
+                 <div><strong>00...0</strong> <span style="font-size:0.8em; color:#666;">(Const)</span></div>
+                 
+                 <div><strong>≠ 0...0</strong> <span style="font-size:0.8em; color:#666;">(Balanced)</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+`,
             supplement: `輸入為 $n$ bits的 $x$，其中 $x \\in \\{0,1\\}$ 的組合，函數運算 $f(x)$。<br>
 <br>
 <strong>常數函數：</strong>輸出結果都相同。<br>
@@ -332,7 +523,107 @@ $$H = -\\sum_i h_i Z_i - \\sum_{i \\lt j} J_{ij} Z_i Z_j$$
 1. 利用 H 閘同時處理所有疊加輸入，形成對 oracle 的平行查詢。<br>
 2. 經過 oracle 黑盒運算，將「輸入之間的等價關係」編碼為量子態的相位／子空間結構，由於 $f(x)=f(x \\oplus s)$，oracle 使得量子態自然成對，形成 $|x\\rangle+|x \\oplus s\\rangle$。這表示在隱藏週期方向上的相位一致性，而在其他方向上產生相位分裂。<br>
 3. 透過干涉性，消除不符合隱藏週期約束的相位分量，經過重複抽樣後得到隱藏週期 $s$。<br>`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">|0⟩<sup>⊗n</sup><sub>1</sub> |0⟩<sup>⊗n</sup><sub>2</sub></div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗n</sup><sub>1</sub> ⊗ I<sub>2</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; flex-grow: 1; min-width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div>
+                <span style="font-size: 1.1em;">1/√2ⁿ</span> ∑|x⟩<sub>1</sub> |0⟩<sub>2</sub>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">U<sub>f</sub> : |x⟩|y⊕f(x)⟩</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+            
+            <div>
+                <span style="font-size: 1.1em;">1/√2ⁿ</span> ∑ |x⟩<sub>1</sub> |f(x)⟩<sub>2</sub>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 20px;">
+            <span style="font-size: 0.8em; color: #666; margin-bottom: -3px;">假設 Reg 2 測得 z</span>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #999; border-bottom: 1px dashed #999; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px; color: #999;">▶</div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; justify-content: center; gap: 5px;">
+             <div style="font-size: 0.8em; color: #006400; font-weight: bold;">
+                Reg 1 塌縮為兩個態 (週期 s):
+             </div>
+             <div style="font-size: 1.1em;">
+                <span style="font-size: 1.1em;">1/√2</span> [ |x₀⟩ + |x₀ ⊕ s⟩ ]<sub>1</sub>
+             </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%; padding-top: 0px;"> 
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗n</sup><sub>1</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; gap: 15px;">
+                 
+                 <div>
+                    <span style="font-size: 0.9em; color: #555;">1/√2 [ ∑(-1)<sup>x₀⋅y</sup>|y⟩ + ∑(-1)<sup>(x₀⊕s)⋅y</sup>|y⟩ ]</span>
+                 </div>
+                 
+                 <div>
+                    <span style="margin-right: 5px;">=</span>
+                    <span style="font-size: 0.9em; color: #555;">1/√2 ∑ (-1)<sup>x₀⋅y</sup> [ 1 + (-1)<sup>s⋅y</sup> ] |y⟩</span>
+                 </div>
+
+                 <div style="margin-top: 5px;">
+                    <div style="margin-bottom: 8px;">
+                        <span style="color: #B22222; font-weight: bold; font-size: 0.9em;">If s⋅y = 1 : </span>
+                        <span style="font-size: 0.9em; color: #555;">[ 1 + (-1) ] = 0</span> 
+                        <span style="font-size: 0.8em; color: #999;">(相消)</span>
+                    </div>
+                    <div>
+                        <span style="color: #006400; font-weight: bold; font-size: 0.9em;">If s⋅y = 0 : </span>
+                        <span style="font-size: 0.9em; color: #555;">[ 1 + 1 ] = 2</span>
+                        <span style="font-size: 0.8em; color: #999;">(保留)</span>
+                    </div>
+                 </div>
+
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">M<sub>1</sub></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; border-radius: 5px 0 0 5px; padding-left: 10px; justify-content: center;">
+                 <div style="margin-bottom: 5px;">
+                    <strong>y</strong>
+                 </div>
+                 <div style="font-size: 0.8em; color: #00008B;">
+                    滿足 y ⋅ s = 0
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+`,
             supplement: `$\\oplus$：表示二進制XOR運算，<br>
 XOR運算滿足對合性(Involution)即 $x' = x \\oplus s$ 且 $x = x' \\oplus s$<br>
 <br>
@@ -350,7 +641,96 @@ Simon演算法：將 $x$ 跟 $x \\oplus s$ 經過 $f$ 函數運算會得到同�
             concept: `關鍵字：QFT、週期查找、模運算、求階問題<br>
 <br>
 將原本的質因數分解問題 $N=p \\times q$，轉成週期與求階問題 $x^{2a} \\equiv 1 \\mod N$，讓量子電腦快速算出 $a$，再用古典運算 $\\gcd(x^a-1, N)$ 即可獲得 $p$，使得能夠在合理時間內算出質因數分解。<br>`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">
+                |0⟩<sup>⊗t</sup><sub>1</sub> ⊗ |1⟩<sup>⊗L</sup><sub>2</sub>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗t</sup> ⊗ I</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div>
+                <span style="font-size: 1.1em;">1/√2ᵗ</span> ∑ |j⟩<sub>1</sub> |1⟩<sub>2</sub>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">U<sub>f</sub> (Mod Exp)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div>
+                <span style="font-size: 1.1em;">1/√2ᵗ</span> ∑ |j⟩<sub>1</sub> ⊗ |x<sup>j</sup> mod N⟩<sub>2</sub>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px; color: #B22222;">Measure Reg 2</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #B22222;">Observe z</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #B22222; padding-left: 10px; gap: 5px;">
+                 <div style="font-size: 0.85em; color: #B22222; font-weight: bold;">
+                    狀態塌縮 (Reg 1 Collapse):
+                 </div>
+                 <div>
+                    <span style="font-size: 1.1em;">1/√A</span> [ ∑<sub>k</sub> |j₀ + k·r⟩<sub>1</sub> ] ⊗ |z⟩<sub>2</sub>
+                 </div>
+                 <div style="font-size: 0.8em; color: #666;">
+                    (保留了具備週期 r 的序列，起始點為 j₀)
+                 </div>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%; padding-top: 0px;"> 
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">FT<sup>†</sup> (on Reg 1)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; padding-left: 10px; gap: 5px;">
+                 <div style="font-size: 0.9em; font-weight: bold; color: #00008B;">
+                    頻率提取 (Peaks):
+                 </div>
+                 <div>
+                    ∑ | m · <span style="font-size: 1.1em;">2ᵗ/r</span> ⟩<sub>1</sub> ⊗ |z⟩<sub>2</sub>
+                 </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Measure Reg 1</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 2px solid #000; padding-left: 10px; justify-content: center;">
+                 <div><strong>Result y</strong></div>
+                 <div style="font-size: 0.8em; color: #006400;">y ≈ m · 2ᵗ/r</div>
+                 <div style="font-size: 0.8em; color: #666;">→ 連分數求 r</div>
+            </div>
+        </div>
+    </div>
+</div>
+`,
             supplement: `<strong>1. 週期尋找(Period finding)：</strong><br>
 函數滿足 $f(x+s)=f(x)$，尋找 $s$ (詳細週期尋找算法點此)<br>
 <br>
@@ -365,6 +745,9 @@ $a \\equiv b \\pmod{N}$，表示 $a$ 和 $b$ 除以 $N$ 的餘數相同<br>
 <strong>3. 求階問題(Order finding)：</strong><br>
 已知 $x$ 和 $N$，求 $x^r \\equiv 1 \\pmod{N}$ 的階 $r$。(詳細求階算法點此)<br>
 <br>
+<strong>4. 連分式(Continued Fraction)：</strong><br>
+求階運算與相位估計中，測得可能的 $s/r$ 後，使用古典電腦連分式運算得到所有可能的 $r$ 值。(詳細求階算法點此)<br>
+<br>
 <strong>文獻：</strong>"Algorithms for quantum computation: discrete logarithms and factoring" (1994)`,
             story: `是**首個**在現實已有問題中**實際應用價值**的量子計算演算法！<br>
 RSA 加密基於大整數分解的困難度，傳統電腦暴力運算無法在合理時間內破解。<br>
@@ -378,13 +761,124 @@ Shor演算法將複雜度從指數級降為多項式級。<br>
             author: 'Artur Ekert, Richard Jozsa, Cleve et al.',
             goal: '在量子態上執行傅立葉變換',
             concept: '基底變換、相位累積',
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">
+                |j<sub>1</sub> j<sub>2</sub> ... j<sub>n</sub>⟩
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H, R<sub>k</sub> Gates</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 2px solid #666; padding-left: 10px; gap: 15px;">
+             
+             <div>
+                <span style="font-size: 1.1em; margin-right: 5px;">1/√2</span>
+                <span>( |0⟩ + e<sup>2πi <span style="color: #B22222;">0.j<sub>1</sub>...j<sub>n</sub></span></sup> |1⟩ )</span>
+             </div>
+
+             <div style="text-align: center; color: #999; font-size: 0.8em;">⊗ ... ⊗</div>
+
+             <div>
+                <span style="font-size: 1.1em; margin-right: 5px;">1/√2</span>
+                <span>( |0⟩ + e<sup>2πi <span style="color: #006400;">0.j<sub>n</sub></span></sup> |1⟩ )</span>
+             </div>
+             
+             <div style="font-size: 0.8em; color: #666; font-style: italic; margin-top: -5px;">
+                (Bit-Reversed Order)
+             </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">SWAP Gates</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">Reverse Qubits</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 2px solid #00008B; padding-left: 10px; gap: 15px;">
+             
+             <div>
+                <span style="font-size: 1.1em; margin-right: 5px;">1/√2</span>
+                <span>( |0⟩ + e<sup>2πi <span style="color: #006400;">0.j<sub>n</sub></span></sup> |1⟩ )</span>
+             </div>
+
+             <div style="text-align: center; color: #000; font-size: 1.2em;">⊗</div>
+
+             <div>
+                <span style="font-size: 1.1em; margin-right: 5px;">1/√2</span>
+                <span>( |0⟩ + e<sup>2πi <span style="color: #4B0082;">0.j<sub>n-1</sub>j<sub>n</sub></span></sup> |1⟩ )</span>
+             </div>
+
+             <div style="text-align: center; color: #000; font-size: 1.2em;">⊗ ... ⊗</div>
+
+             <div>
+                <span style="font-size: 1.1em; margin-right: 5px;">1/√2</span>
+                <span>( |0⟩ + e<sup>2πi <span style="color: #B22222;">0.j<sub>1</sub>...j<sub>n</sub></span></sup> |1⟩ )</span>
+             </div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `將振幅編碼轉換為相位編碼 (Time domain → Frequency domain)。<br>
 <br>
 <strong>待補充內容：</strong><br>
-1. 離散傅立葉公式<br>
-2. 量子態表示的DFT<br>
-3. 量子且二進制表示DFT<br>
+<div style="font-family: 'Times New Roman', serif; margin-top: 10px; display: flex; flex-direction: column; gap: 20px;">
+
+    <div>
+        <div style="font-weight: bold; color: #333; margin-bottom: 5px;">1. 離散傅立葉公式 (Classical DFT):</div>
+        <div style="background: #f9f9f9; padding: 10px; border-left: 3px solid #666; font-size: 1.1em; overflow-x: auto;">
+            y<sub>k</sub> = 
+            <span style="font-size: 1.2em;">1/√N</span> 
+            <span style="font-size: 1.3em; margin: 0 5px;">∑</span><sub>j=0</sub><sup>N-1</sup> 
+            x<sub>j</sub> · e<sup> i 2π jk / N </sup>
+        </div>
+    </div>
+
+    <div>
+        <div style="font-weight: bold; color: #333; margin-bottom: 5px;">2. 量子態表示的 DFT:</div>
+        <div style="background: #f9f9f9; padding: 10px; border-left: 3px solid #006400; font-size: 1.1em; overflow-x: auto;">
+            |j⟩ = 
+            <span style="font-size: 1.2em;">1/√N</span> 
+            <span style="font-size: 1.3em; margin: 0 5px;">∑</span><sub>k=0</sub><sup>N-1</sup> 
+            e<sup> i 2π jk / N </sup> |k⟩
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-top: 2px;">(其中 N = 2ⁿ，將基底態轉換為所有態的均勻疊加，相位由 k 決定)</div>
+    </div>
+
+    <div>
+        <div style="font-weight: bold; color: #333; margin-bottom: 5px;">3. 量子二進制表示 (Tensor Product):</div>
+        <div style="background: #f9f9f9; padding: 10px; border-left: 3px solid #00008B; font-size: 1.1em; overflow-x: auto; white-space: nowrap;">
+            |j⟩ <span style="margin: 0 5px;">→</span> 
+            <span style="font-size: 1.2em;">1/2<sup>n/2</sup></span>
+            [ 
+              (|0⟩ + e<sup>2πi 0.j<sub>n</sub></sup>|1⟩) 
+              ⊗ 
+              (|0⟩ + e<sup>2πi 0.j<sub>n-1</sub>j<sub>n</sub></sup>|1⟩) 
+              ⊗ ... ⊗ 
+              (|0⟩ + e<sup>2πi 0.j<sub>1</sub>...j<sub>n</sub></sup>|1⟩) 
+            ]
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-top: 2px;">
+            (這是 QFT 電路設計的靈魂：將糾纏態分解為單量子位元的旋轉)
+        </div>
+    </div>
+
+</div>
+
 <br>
 <strong>詳細參考資料：</strong><br>
 1. Entangle Tech量子教育平台 https://www.entangletech.tw/<br>
@@ -403,7 +897,37 @@ Shor演算法將複雜度從指數級降為多項式級。<br>
             author: 'Cleve, Ekert, Macchiavello, Mosca',
             goal: '相位反沖技術',
             concept: '讓受控(目標)位元的特徵值(相位)反彈到控制位元上',
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: center; padding-top: 15px;">
+
+        <div>
+            <span style="font-size: 1.1em;">1/√2</span> (|0⟩ + |1⟩) ⊗ |ψₖ⟩
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <span style="font-size: 0.8em; margin-bottom: -3px;">C-U</span>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+        </div>
+
+        <div>
+            <span style="font-size: 1.1em;">1/√2</span> 
+            ( |0⟩⊗|ψₖ⟩ + |1⟩⊗<span style="color: #B22222; font-weight: bold;">e<sup>iφₖ</sup></span>|ψₖ⟩ )
+        </div>
+
+        <div style="margin: 0 15px; font-size: 1.2em;">=</div>
+
+        <div style="border: 2px solid #00008B; padding: 5px 10px; border-radius: 5px; background: #f0f8ff;">
+            <span style="font-size: 1.1em;">1/√2</span> 
+            ( |0⟩ + <span style="color: #B22222; font-weight: bold;">e<sup>iφₖ</sup></span>|1⟩ ) ⊗ |ψₖ⟩
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `Controlled-U 運算：當 Control bit(控制位元)為1時，對目標位元做 U 運算<br>
 <br>
 Phase KickBack 在線性代數上本質的概念只是：<br>
@@ -426,7 +950,98 @@ Phase KickBack 在線性代數上本質的概念只是：<br>
             concept: `疊加態、相位回彈、逆傅立葉<br>
 <br>
 讓 U 算子的特徵值透過逆傅立葉變成基底資訊讀出，再用古典連分式運算得到 $\\phi$ 值<br>`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: center; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center;">
+            <div style="text-align: center;">|0⟩<sup>⊗t</sup> |u⟩</div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">H<sup>⊗t</sup></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div>1/√2ᵗ ∑ |k⟩ |u⟩</div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">C-U<sup>k</sup></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">Kickback</span>
+            </div>
+
+            <div style="border: 1px dashed #999; padding: 5px; border-radius: 5px; background: #f9f9f9;">
+                <span style="font-size: 1.1em;">1/√2ᵗ</span> 
+                [ 
+                  (|0⟩+e<sup>2πi <span style="color:#B22222;">0.φ₁...</span></sup>|1⟩) 
+                  ⊗ ... ⊗ 
+                  (|0⟩+e<sup>2πi <span style="color:#006400;">0.φₜ</span></sup>|1⟩) 
+                ] ⊗ |u⟩
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.9em; font-weight: bold; margin-bottom: -3px;">FT<sup>†</sup></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px; border-left: 3px solid #000; padding-left: 10px; position: relative;">
+            
+            <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 5px; border-top: 2px solid #000; border-bottom: 2px solid #000;"></div>
+
+            <div style="display: flex; align-items: center;">
+                <span style="font-weight: bold; color: #B22222; width: 30px;">| φ₁ ⟩</span>
+                <span style="font-size: 0.8em; color: #666; margin-left: 10px;">(High Bit 2⁻¹)</span>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <span style="font-weight: bold; color: #4B0082; width: 30px;">| φ₂ ⟩</span>
+                <span style="font-size: 0.8em; color: #666; margin-left: 10px;">(Bit 2⁻²)</span>
+            </div>
+
+            <div style="text-align: center; line-height: 0.5em; color: #999;">⋮</div>
+
+            <div style="display: flex; align-items: center;">
+                <span style="font-weight: bold; color: #006400; width: 30px;">| φₜ ⟩</span>
+                <span style="font-size: 0.8em; color: #666; margin-left: 10px;">(Low Bit 2⁻ᵗ)</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex; align-items: center; margin-left: 15px;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin-right: 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Measure</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="border: 2px solid #00008B; padding: 5px 10px; border-radius: 5px; background: #f0f0ff;">
+                <div style="font-size: 0.85em; color: #666; margin-bottom: 2px;">Binary Fraction:</div>
+                <div style="font-size: 1.2em; font-weight: bold;">
+                    φ ≈ 0.<span style="color: #B22222;">φ₁</span><span style="color: #4B0082;">φ₂</span>...<span style="color: #006400;">φₜ</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `透過疊加與受控運算，使得電路設計只需使用 $U^{2^{t-1}}$ 即可組合出 $U^0, U^1, U^2, \\ldots, U^{2^{t-1}}$ 所有階組合的電路<br>
 <br>
 量子運算：以**振幅編碼**作為輸入、**相位**作為中間運算、**相位/振幅**作為輸出<br>
@@ -472,31 +1087,88 @@ Phase KickBack 在線性代數上本質的概念只是：<br>
 4. 特徵分解 $A=PDP^{-1}$，$f(A)=Pf(D)P^{-1}$，故 $e^{-iAt}|u_j\\rangle=e^{-i\\lambda_j t}|u_j\\rangle$<br>
 
 做出A的逆矩陣作用到b即可獲得x`,
-            computation: `<strong>問題：</strong>求解 $A\\mathbf{x} = \\mathbf{b}$，其中 $A$ 是 $N \\times N$ 矩陣
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: center; padding-top: 15px;">
 
-<strong>步驟1：</strong>製備初態 $|b\\rangle$
+        <div style="text-align: center;">
+            <div style="font-size: 0.9em; color: #B22222;">|0⟩<sub>S</sub></div>
+            <div style="font-size: 0.9em; color: #006400;">|0⟩<sub>C</sub></div>
+            <div style="font-size: 0.9em; color: #00008B;">|b⟩<sub>In</sub></div>
+        </div>
 
-將向量 $\\mathbf{b}$ 編碼為量子態：
-$$|b\\rangle = \\sum_j b_j|u_j\\rangle$$
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                QPE (e<sup>iAt</sup>)
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Extract Eigenvalues</span>
+        </div>
 
-其中 $|u_j\\rangle$ 是 $A$ 的本徵態。
+        <div>
+            ∑ βⱼ 
+            <span style="color: #B22222;">|0⟩<sub>S</sub></span> 
+            <span style="color: #006400;">|λⱼ⟩<sub>C</sub></span> 
+            <span style="color: #00008B;">|uⱼ⟩<sub>In</sub></span>
+        </div>
 
-<strong>步驟2：</strong>量子相位估計（QPE）
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                C-R<sub>y</sub>(2arcsin(C/λ))
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Invert Eigenvalues</span>
+        </div>
 
-$$|b\\rangle|0\\rangle \\xrightarrow{QPE} \\sum_j b_j|u_j\\rangle|\\lambda_j\\rangle$$
+        <div style="display: flex; flex-direction: column; border: 1px dashed #999; padding: 5px; background: #f9f9f9; border-radius: 5px;">
+            <div>
+                ∑ βⱼ 
+                ( <span style="color: #999; font-size: 0.8em;">...|0⟩</span> + 
+                <span style="color: #B22222; font-weight: bold;">C/λⱼ |1⟩<sub>S</sub></span> ) 
+                <span style="color: #006400;">|λⱼ⟩<sub>C</sub></span> 
+                <span style="color: #00008B;">|uⱼ⟩<sub>In</sub></span>
+            </div>
+        </div>
 
-提取本徵值 $\\lambda_j$ 的資訊。
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                QPE<sup>†</sup>
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Uncompute Clock</span>
+        </div>
 
-<strong>步驟3：</strong>受控旋轉（實現矩陣求逆）
+        <div>
+            ∑ βⱼ 
+            ( <span style="color: #B22222;">C/λⱼ |1⟩<sub>S</sub></span> ) 
+            <span style="color: #006400;">|0⟩<sub>C</sub></span> 
+            <span style="color: #00008B;">|uⱼ⟩<sub>In</sub></span>
+        </div>
 
-$$\\xrightarrow{R(\\lambda)} \\sum_j b_j|u_j\\rangle|\\lambda_j\\rangle\\left(\\sqrt{1-\\frac{C^2}{\\lambda_j^2}}|0\\rangle + \\frac{C}{\\lambda_j}|1\\rangle\\right)$$
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">Measure S=1</span>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #B22222;">Post-selection</span>
+        </div>
 
-<strong>步驟4：</strong>測量輔助位元為 $|1\\rangle$
+        <div style="border: 2px solid #00008B; padding: 5px 10px; border-radius: 5px; background: #f0f8ff;">
+            <span style="font-weight: bold;">|x⟩</span> 
+            ≈ ∑ (βⱼ/λⱼ) |uⱼ⟩ 
+            <span style="font-size: 0.9em; color: #666; margin-left: 5px;">∝ A⁻¹|b⟩</span>
+        </div>
 
-成功時得到解：
-$$|x\\rangle = A^{-1}|b\\rangle = \\sum_j \\frac{b_j}{\\lambda_j}|u_j\\rangle$$
-
-<strong>步驟5：</strong>逆QPE恢復計算基底`,
+    </div>
+</div>
+`,
             supplement: `<strong>當前挑戰：</strong>
 1. 把古典b編碼成量子 $|b\\rangle$ 本身耗時，失去量子加速優勢<br>
 2. 輸出 $|x\\rangle$ 狀態需要 $\\langle x|M|x\\rangle$ 測量統計讀取 $O(N)$<br>
@@ -578,16 +1250,127 @@ Kerenidis 和 Prakash 在 2016 年利用這個技術提出了一個量子推薦�
             author: 'Ettinger, Høyer, Knill, Mosca et al.',
             goal: '從數學本質上歸納某一類演算法的運算問題類型(即隱藏的子群)',
             concept: '從數學本質上歸納某一類演算法的運算問題類型(即隱藏的子群)',
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; line-height: 1.6; color: #333; padding: 5px;">
+    
+    <div style="font-weight: bold; font-size: 1.1em; color: #00008B; border-bottom: 2px solid #00008B; padding-bottom: 5px; margin-bottom: 15px;">
+        隱子群問題 (HSP) 的視覺化框架解析
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        這張圖非常直觀地描繪了 <strong>隱子群問題 (Hidden Subgroup Problem, HSP)</strong> 的數學結構。這是一個通用的框架，許多著名的量子演算法（如 Simon、Shor）都是這個問題的特例。<br>
+        圖中展示了一個定義在群 <i>G</i> 上的函數 <i>f: G → X</i> 的特殊性質。
+    </div>
+
+    <div style="margin-bottom: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border-left: 4px solid #333;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em;">1. 左側大圓：群 <i>G</i> (The Group)</div>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li>這是我們輸入的定義域（例如 <i>n</i> 位元的字串集合，或是整數集合）。</li>
+            <li><strong>結構劃分：</strong>圖中將群 <i>G</i> 切割成好幾個雲朵狀的區塊。
+                <ul style="margin-top: 5px; color: #444;">
+                    <li><strong><i>K</i> 子群 (Subgroup K)：</strong>這是我們想要找出的「隱藏結構」。</li>
+                    <li><strong><i>K</i> 的陪集 (Cosets, <i>Kᵢ</i>)：</strong>它們是子群 <i>K</i> 經過平移運算後產生的集合（例如 <i>x + K</i>）。</li>
+                </ul>
+            </li>
+            <li style="margin-top: 5px; color: #006400;"><strong>重點：</strong>這些陪集將整個群 <i>G</i> 完美地分割 (Partition)，沒有重疊，且大小相同。</li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 15px; background: #f9f9f9; padding: 10px; border-radius: 5px; border-left: 4px solid #00008B;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em;">2. 右側小圓：集合 <i>X</i> (The Set)</div>
+        <div>
+            這是函數 <i>f</i> 的輸出的對應域 (Codomain)。裡面包含了不同的函數值 <i>c, cᵢ, cⱼ</i> 等。
+        </div>
+    </div>
+
+    <div style="margin-bottom: 15px; background: #fff0f0; padding: 10px; border-radius: 5px; border-left: 4px solid #B22222;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em;">3. 中間的箭頭：函數映射 <i>f</i> (The Function)</div>
+        <div>這張圖最關鍵的細節在於箭頭的走向，它揭示了 HSP 的兩大核心條件：</div>
+        <ul style="margin-top: 8px; padding-left: 20px;">
+            <li style="margin-bottom: 8px;">
+                <strong>陪集內恆定 (Constant on Cosets)：</strong><br>
+                從同一個雲朵（例如 <i>Kᵢ</i> 陪群）出發的所有箭頭，全部都指向右邊同一個點 (<i>cᵢ</i>)。這表示在同一個陪集內的輸入，經過 <i>f</i> 運算後會得到相同的輸出。
+            </li>
+            <li>
+                <strong>陪集間區分 (Distinct on different Cosets)：</strong><br>
+                不同的雲朵（例如 <i>Kᵢ</i> 和 <i>Kⱼ</i>）指向右邊不同的點 (<i>cᵢ ≠ cⱼ</i>)。這表示不同陪集的輸出是唯一的，不會混淆。
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px dashed #999; padding-top: 15px;">
+        <div style="font-weight: bold; font-size: 1.05em; margin-bottom: 8px;">總結：HSP 任務定義</div>
+        <div style="margin-bottom: 10px;">
+            給定一個黑盒子函數 <i>f</i> (Oracle)，我們已知它滿足上述圖中的結構——即：<br>
+            <div style="text-align: center; font-weight: bold; margin: 5px 0; background: #eee; padding: 3px;">
+                f(x) = f(y) ⟺ x - y ∈ K
+            </div>
+            我們的目標是：透過查詢這個函數 <i>f</i>，找出那個隱藏的子群 <i>K</i> 是什麼。
+        </div>
+        <div style="font-size: 0.95em; color: #555; background: #eef; padding: 8px; border-radius: 5px;">
+            <strong>• 對應到 Simon 演算法：</strong><br>
+            <i>K</i> 就是隱藏字串 <i>s</i> 生成的子群 {0, s}，陪集就是配對的 {x, x ⊕ s}。<br>
+            <strong>• 對應到 Shor 演算法：</strong><br>
+            <i>K</i> 就是週期 <i>r</i> 的倍數集合 <i>rℤ</i>，陪集就是具有相同餘數的數列。
+        </div>
+    </div>
+
+</div>
+`,
             supplement: `Deutsch/ Deutsch-Jorza/ Simon/ Shor(因式分解)/ 週期查找/ 離散對數...等問題都能規約為HSP問題。<br>
 <br>
-群論：滿足以下四個條件<br>
--<br>
--<br>
--<br>
--<br>
-群論又可依照性質等分成...<br>
-<br>
+<strong>1. 群論 (Group Theory) 四大公理：</strong><br>
+    若集合 G 與運算 ⋅ 構成一個群 (G, ⋅)，需滿足：<br>
+    <div style="margin-left: 10px; background: #f9f9f9; padding: 5px; border-left: 3px solid #00008B;">
+        • <strong>封閉性 (Closure)：</strong><br>
+        &nbsp;&nbsp; ∀ a, b ∈ G  ⇒  a ⋅ b ∈ G<br>
+        • <strong>結合律 (Associativity)：</strong><br>
+        &nbsp;&nbsp; ∀ a, b, c ∈ G  ⇒  (a ⋅ b) ⋅ c = a ⋅ (b ⋅ c)<br>
+        • <strong>單位元素 (Identity)：</strong><br>
+        &nbsp;&nbsp; ∃ e ∈ G, s.t. ∀ a ∈ G,  a ⋅ e = e ⋅ a = a<br>
+        • <strong>反元素 (Inverse)：</strong><br>
+        &nbsp;&nbsp; ∀ a ∈ G, ∃ a⁻¹ ∈ G, s.t.  a ⋅ a⁻¹ = a⁻¹ ⋅ a = e
+    </div>
+    <br>
+    <strong>2. HSP 分類 (依照群 G 的性質)：</strong><br>
+    <table style="border-collapse: collapse; width: 100%; font-size: 0.9em;">
+        <tr style="border-bottom: 1px solid #ccc;">
+            <th style="text-align: left; color: #006400;">阿貝爾群 (Abelian)</th>
+            <th style="text-align: left;">交換律 (ab=ba)，<span style="color: #006400;">可高效解</span></th>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>ℤ₂ⁿ (Hypercube)</strong></td>
+            <td>Simon's Algorithm (XOR運算)</td>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>ℤₙ (Cyclic Group)</strong></td>
+            <td>Shor's (Factoring, Period Finding)</td>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>ℤ (Integer)</strong></td>
+            <td>Discrete Logarithm (ECC加密)</td>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>ℝ (Reals)</strong></td>
+            <td>Pell's Equation (數論問題)</td>
+        </tr>
+        
+        <tr style="border-bottom: 1px solid #ccc; border-top: 1px solid #ccc;">
+            <th style="text-align: left; color: #B22222; padding-top: 10px;">非阿貝爾群 (Non-Abelian)</th>
+            <th style="text-align: left; padding-top: 10px;">不交換，<span style="color: #B22222;">目前仍困難</span></th>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>Dₙ (Dihedral)</strong></td>
+            <td>Shortest Vector Problem (Lattice)</td>
+        </tr>
+        <tr>
+            <td style="padding: 3px 0;">• <strong>Sₙ (Symmetric)</strong></td>
+            <td>Graph Isomorphism (圖同構問題)</td>
+        </tr>
+    </table>
+    <br>
+    <span style="font-size: 0.85em; color: #666;">* 量子計算目前的黃金標準是解決 Abelian HSP (利用 QFT)；而 Non-Abelian HSP 仍是量子算法研究的前沿領域。</span>
+</div>
 <strong>文獻：</strong>"Quantum algorithms for solving problems with the hidden subgroup structure" (1995)`,
             story: `在 Shor 演算法出現後，學界回頭重新理解量子加速本質時，由量子計算社群逐步抽象總結所提出的統一數學框架。<br>
 那些看似不同的問題，其量子解法卻高度相似，學界因此發現，這些演算法其實都在解同一類問題。<br>
@@ -605,7 +1388,56 @@ Non-Abelian(非阿貝爾群，如:對稱群)至今仍是開放難題`,
             author: 'Ethan Bernstein, Umesh Vazirani',
             goal: '定義量子電腦運算的極限與能力範圍',
             concept: '定義了量子電腦運算的極限與能力範圍',
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; padding: 5px; line-height: 1.6;">
+
+    <div style="font-weight: bold; font-size: 1.1em; color: #4B0082; border-bottom: 2px solid #4B0082; padding-bottom: 5px; margin-bottom: 15px;">
+        問題複雜度位階解析 (Complexity Classes)
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 4px solid #00008B; padding-left: 10px; background: #f0f8ff;">
+        <strong style="color: #00008B;">P (Polynomial Time)</strong>
+        <div style="font-size: 0.95em; color: #333;">
+            • 定義：<strong>經典電腦</strong>能在多項式時間內「解決」的問題。<br>
+            • 意義：簡單、快速、傳統電腦能輕鬆搞定的題目（如：排序、基本算術）。
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 4px solid #8A2BE2; padding-left: 10px; background: #f8f0ff;">
+        <strong style="color: #8A2BE2;">BQP (Bounded-error Quantum Polynomial)</strong>
+        <div style="font-size: 0.95em; color: #333;">
+            • 定義：<strong>量子電腦</strong>能在多項式時間內「解決」的問題（容許微小錯誤率，可透過重複運算消除）。<br>
+            • 意義：量子電腦的主戰場。包含整數分解 (Shor)、模擬量子系統等。
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px; border-left: 4px solid #4682B4; padding-left: 10px; background: #f0faff;">
+        <strong style="color: #4682B4;">NP (Nondeterministic Polynomial)</strong>
+        <div style="font-size: 0.95em; color: #333;">
+            • 定義：如果給定一個答案，經典電腦能在多項式時間內「驗證」它是否正確。<br>
+            • 意義：解題可能很難，但改考卷很快。所有 P 問題都屬於 NP。
+        </div>
+    </div>
+
+    <div style="margin-bottom: 15px; border-left: 4px solid #B22222; padding-left: 10px; background: #fff0f0;">
+        <strong style="color: #B22222;">NP-Complete / NP-Hard</strong>
+        <div style="font-size: 0.95em; color: #333;">
+            • 定義：NP 中最難的問題集合。若能高效解決其中一個，就能解決所有 NP 問題。<br>
+            • 意義：<strong>經典與量子電腦目前的噩夢</strong>。例如：旅行推銷員問題 (TSP)、3-SAT。
+        </div>
+    </div>
+
+    <div style="border: 2px dashed #666; padding: 10px; border-radius: 5px; background: #fafafa;">
+        <div style="font-weight: bold; margin-bottom: 5px;">集合關係圖解 (如上圖所示)：</div>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.95em;">
+            <li><strong>P ⊆ BQP</strong>：凡是經典電腦能算的，量子電腦也能算 (且可能更快)。</li>
+            <li><strong>BQP 與 NP 交集</strong>：BQP 能解決部分 NP 裡的難題 (如質因數分解)，這些題目在 P 之外。</li>
+            <li><strong>BQP ≠ NP-Complete</strong>：目前的共識是，量子電腦<strong>無法</strong>高效解決 NP-Complete 問題 (即圖中 BQP 圈圈沒有蓋住最上面的深藍色區域)。</li>
+        </ul>
+    </div>
+
+</div>
+`,
             supplement: `B (Bounded-error)：容許有錯誤，但錯誤率低於 1/3 (可透過重複執行降低)。<br>
 Q (Quantum)：使用量子電腦。<br>
 P (Polynomial)：在多項式時間內完成。<br>
@@ -627,7 +1459,90 @@ imageSource: 'https://www.researchgate.net/figure/NP-Complete-problems-are-outsi
             goal: '探討量子疊加跟干涉的隨機行走，和古典隨機擴散有何區別',
             concept: `定義硬幣算符C(Coin)、位移算符S(Shift)<br>
 丟硬幣決定下一步為一方向`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 20px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">
+                |x=0⟩<sub>P</sub> ⊗ |0⟩<sub>C</sub>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Coin Flip (H)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">Create Superposition</span>
+            </div>
+
+            <div>
+                |0⟩<sub>P</sub> ⊗ <span style="font-size: 1.1em;">1/√2</span> (|0⟩ + |1⟩)<sub>C</sub>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Shift (S)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">|0⟩<sub>c</sub>→L, |1⟩<sub>c</sub>→R</span>
+            </div>
+
+            <div style="border: 1px dashed #00008B; padding: 5px; border-radius: 5px; background: #f0f8ff;">
+                <span style="font-size: 1.1em;">1/√2</span> 
+                [ 
+                  <span style="color: #006400;">|-1⟩<sub>P</sub>|0⟩<sub>C</sub></span> 
+                  + 
+                  <span style="color: #B22222;">|+1⟩<sub>P</sub>|1⟩<sub>C</sub></span> 
+                ]
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Next Step (H+S)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #B22222;">Paths Merge</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; border-left: 3px solid #333; padding-left: 10px; gap: 5px;">
+                 
+                 <div>
+                    <span style="font-size: 0.8em; color: #006400;">From |-1⟩:</span> |-2⟩ + |0⟩
+                 </div>
+
+                 <div>
+                    <span style="font-size: 0.8em; color: #B22222;">From |+1⟩:</span> |0⟩ + |+2⟩
+                 </div>
+                 
+                 <div style="height: 1px; background: #ccc; width: 100%; margin: 2px 0;"></div>
+
+                 <div>
+                    <strong>Result: </strong>
+                    a|-2⟩ + <span style="background: #ffffcc; padding: 0 3px; border-radius: 3px;">(b + c)|0⟩</span> + d|+2⟩
+                 </div>
+                 <div style="font-size: 0.8em; color: #666;">
+                    (Amplitudes b, c interfere!)
+                 </div>
+            </div>
+
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin-left: 20px; justify-content: center;">
+             <div style="font-size: 2em; color: #666; line-height: 0.8;">Ballistic<br>Spread</div>
+             <div style="font-size: 0.8em;">(Not Gaussian)</div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `量子演化須滿足可逆，因此只有位移算符來行走不可逆(假設觀測到走到a點，無法得知上一步是從哪個方向到a點)，加入硬幣算符就能知道是丟到哪個硬幣而走這條路到a點(可逆)。
 <br>
 <strong>文獻：</strong>"Quantum random walks" (1993)`,
@@ -640,7 +1555,7 @@ imageSource: 'https://www.researchgate.net/figure/NP-Complete-problems-are-outsi
             author: 'Seth Lloyd',
             goal: '證明Gate-Based的量子電腦可做哈密頓模擬',
             concept: `使用Trotter方法引入 $t$ 變數令 $t$ 很小，帶入BCH公式後可忽略 $t$ 多次項，使得複雜的哈密頓量可以看成對局部量子位元的閘操作而可行。`,
-            computation: '',
+            computation: '閱讀附錄(待提供)',
             supplement: `1. 哈密頓量H：材料、組合問題等...都能描述成哈密頓量 $H$ 屬 $N \\times N$ 矩陣<br>
    其中 $H|\\psi\\rangle=E_i|\\psi_i\\rangle$<br>
    H的特徵值對應材料能量、組合成本等<br>
@@ -685,7 +1600,71 @@ imageSource: 'https://www.researchgate.net/figure/NP-Complete-problems-are-outsi
 1. 搜索：Ambainis 的元素相異性 (2004) - 給定 N 個元素的列表中，判斷是否存在兩個相同的元素 $(x_i = x_j)$。<br>
 2. 圖論：Szegedy 的馬可夫鏈通用框架 (2004) - 目標是將任何古典馬可夫鏈轉換為量子漫步，藉此加速尋找圖中的目標節點(Hitting Time)或判斷圖的連通性。<br>
 3. 模擬：Berry & Childs 從圖到物理模擬 (2012-2016) - 解決高精度哈密頓量模擬問題。`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    <div style="font-size: 0.9em; font-weight: bold; color: #4B0082; margin-bottom: 10px;">
+        DTQW (Szegedy Model) on Graph G
+    </div>
+
+    <div style="display: inline-flex; align-items: flex-start; padding-top: 10px;">
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="text-align: center;">
+                |u⟩<sub>1</sub> |0⟩<sub>2</sub>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Prepare edges</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">using √P<sub>uv</sub></span>
+            </div>
+
+            <div style="border: 1px dashed #666; padding: 5px; background: #fafafa;">
+                <span style="font-size: 1.1em;">|ψ<sub>u</sub>⟩</span> = 
+                ∑<sub>v</sub> <span style="color: #006400; font-weight: bold;">√P<sub>uv</sub></span> |u⟩<sub>1</sub>|v⟩<sub>2</sub>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">Reflect (R)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #666;">2|ψ⟩⟨ψ| - I</span>
+            </div>
+
+            <div>
+                (Diffused Amplitudes)
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; height: 100%;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">SWAP (S)</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #00008B;">Jump to neighbor</span>
+            </div>
+
+            <div style="border: 1px solid #00008B; padding: 5px; background: #f0f8ff;">
+                ∑<sub>v</sub> (Amp') 
+                <span style="color: #B22222; font-weight: bold;">|v⟩<sub>1</sub></span>|u⟩<sub>2</sub>
+            </div>
+            
+            <div style="margin-left: 10px; font-size: 0.8em; color: #666;">
+                (Walker moved u → v)
+            </div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `搜索：相異元素問題，古典演算法需要 $O(N)$ 次查詢，量子漫步只需 $O(N^{2/3})$ 次<br>
 圖論：古典遊走的混合時間取決於譜間隙 $\\delta$，量子漫步為 $\\sqrt{\\delta}$<br>
 哈密頓模擬：傳統的 Trotter 切分法（誤差較大）。他們利用量子漫步算符的數學特性，實現了對 $t$ 和誤差 $\\epsilon$ 具有更佳漸進複雜度的模擬算法。<br>
@@ -708,7 +1687,7 @@ imageSource: 'https://www.researchgate.net/figure/NP-Complete-problems-are-outsi
 利用 BCH 公式的逆向思維，將電路排列成對稱結構 (例如 $A/2 \\to B \\to A/2$) 或遞迴結構。<br>
 這種特殊的排列方式，就像是數學上的「相消干涉」，能讓展開式後面的誤差項（即 BCH 中的交換子 $[A, B]$ 等誤差項）自動互相抵銷。<br>
 既然誤差被抵銷了，我們就可以使用較大的時間步伐 (Large Time Step) 來模擬，大幅減少所需的邏輯閘總數。`,
-            computation: '',
+            computation: '(太複雜省略)',
             supplement: `1. BCH公式：$e^A \\cdot e^B = e^{(A+B) + 1/2[A, B] + 1/12[A, [A, B]] - 1/12[B, [A, B]] + ...}$ 誤差項<br>
 2. 交換子 (Commutator)：$[A, B]=AB-BA$<br>
 <br>
@@ -727,7 +1706,68 @@ imageSource: 'https://www.researchgate.net/figure/NP-Complete-problems-are-outsi
 <br>
 1. 圖論遍歷：Childs 的指數加速 (2003) - 穿隧效應 (Quantum Tunneling)：在黏合樹問題中，古典隨機遊走會迷失在圖中間呈現指數成長的節點群中（找不到路）。CTQW 利用量子波包的穿隧特性，能夠保持相干性，直接「穿過」中間的瓶頸區域到達出口。<br>
 2. 空間搜索：Childs & Goldstone 的空間搜尋 (2004) - 能量共振與局域化 (Resonance & Localization)：將目標節點的能量設定得比其他節點低（勢阱）。系統演化時，量子態會從均勻疊加態逐漸塌縮（局域化）並集中在能量最低的目標節點上。`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    <div style="font-size: 0.9em; font-weight: bold; color: #006400; margin-bottom: 10px;">
+        CTQW (Continuous-Time) via Hamiltonian
+    </div>
+
+    <div style="display: inline-flex; align-items: center; padding-top: 10px;">
+
+        <div style="display: flex; align-items: center;">
+            <div style="text-align: center;">
+                |Node<sub>start</sub>⟩
+            </div>
+            
+            <div style="margin-left: 10px; font-size: 0.7em; color: #999; border: 1px dashed #ccc; padding: 2px;">
+                (No Coin Space)
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin: 0 20px;">
+                <span style="font-size: 0.9em; margin-bottom: -3px; font-weight: bold;">U(t) = e<sup>-iHt</sup></span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 80px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+                <span style="font-size: 0.75em; color: #006400;">H ≈ Adjacency Matrix (A)</span>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; border-left: 3px solid #006400; padding-left: 10px; gap: 5px;">
+             
+             <div>
+                <span style="font-size: 1.1em;">|ψ(t)⟩</span> = 
+                ∑<sub>k</sub> <span style="color: #B22222; font-weight: bold;">α<sub>k</sub>(t)</span> |k⟩
+             </div>
+
+             <div style="font-size: 0.85em; color: #666;">
+                α<sub>k</sub>(t) = ⟨k| e<sup>-iAt</sup> |start⟩
+             </div>
+             
+             <div style="font-size: 0.8em; color: #555; font-style: italic;">
+                "Quantum Tunneling across the graph"
+             </div>
+        </div>
+
+        <div style="display: flex; align-items: center; margin-left: 15px;">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin-right: 10px;">
+                <span style="font-size: 0.8em; margin-bottom: -3px;">Measure</span>
+                <div style="display: flex; align-items: center; width: 100%;">
+                    <div style="height: 1px; background: #000; width: 30px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+                </div>
+            </div>
+
+            <div style="border: 1px solid #333; padding: 3px 8px; border-radius: 3px;">
+                Prob(k) = |α<sub>k</sub>(t)|²
+            </div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `圖論遍歷：這是 CTQW 最著名的戰役。針對黏合樹圖形，古典演算法需要 $O(2^n)$ 指數時間才能走到出口，而 CTQW 只需要 $O(n)$ 多項式時間。這是首個證明在 Oracle 問題外具有指數級加速的案例。<br>
 空間搜索：在 2D 網格等多維空間圖形上，CTQW 可以達到與 Grover 類似的 $O(\\sqrt{N})$ 加速（視維度 $d$ 而定）。<br>
 差異：DTQW 需要「擲硬幣 (Coin)」來決定方向；CTQW 不需要硬幣，完全由圖的結構 (Hamiltonian) 驅動流動。<br>
@@ -749,7 +1789,87 @@ imageSource: 'https://ibco.com.tw/turing-college/%E9%87%8F%E5%AD%90%E8%A1%8C%E8%
             concept: `關鍵字：線性組合酋分解、振幅係數分配、多工器<br>
 <br>
 利用輔助位元 (Ancilla) 將係數編碼為振幅，再透過受控操作 (Control) 將不同的 Unitary 疊加在一起。最後透過測量輔助位元，將系統投影到我們想要的線性組合上。`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="font-size: 0.9em; font-weight: bold; color: #333; margin-bottom: 10px;">
+        LCU: Implementing Matrix Addition ( ∑ cₖ Uₖ )
+    </div>
+
+    <div style="display: inline-flex; align-items: center; padding-top: 10px;">
+
+        <div style="text-align: center;">
+            <div style="font-size: 0.9em; color: #B22222;">|0⟩<sub>A</sub></div>
+            <div style="font-size: 0.9em; color: #00008B;">|ψ⟩<sub>S</sub></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                PREP
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Encode Coeffs</span>
+        </div>
+
+        <div>
+            ( ∑ <span style="color: #006400;">√cₖ</span> <span style="color: #B22222;">|k⟩<sub>A</sub></span> ) 
+            ⊗ <span style="color: #00008B;">|ψ⟩<sub>S</sub></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                SELECT (C-Uₖ)
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Entangle A & S</span>
+        </div>
+
+        <div style="border: 1px dashed #999; padding: 5px; background: #fafafa;">
+            ∑ <span style="color: #006400;">√cₖ</span> 
+            <span style="color: #B22222;">|k⟩<sub>A</sub></span> 
+            <span style="color: #00008B;">( Uₖ |ψ⟩ )<sub>S</sub></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                PREP<sup>†</sup>
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Uncompute / Interfere</span>
+        </div>
+
+        <div>
+            <span style="color: #B22222;">|0⟩<sub>A</sub></span> 
+            ⊗ 
+            ( ∑ <span style="color: #006400; font-weight: bold;">cₖ</span> <span style="color: #00008B;">Uₖ |ψ⟩<sub>S</sub></span> ) 
+            + <span style="color: #999; font-size: 0.8em;">...|k≠0⟩</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">Measure |0⟩</span>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #B22222;">Success!</span>
+        </div>
+
+        <div style="border: 2px solid #00008B; padding: 5px 10px; border-radius: 5px; background: #f0f8ff;">
+            <span style="font-weight: bold;">|ψ'⟩</span> 
+            ∝ ( ∑ cₖ Uₖ ) |ψ⟩
+            <div style="font-size: 0.8em; color: #666; margin-top: 3px;">
+                (Linear Combination Achieved)
+            </div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `線性組合酋分解：$A = c_1U_1 + c_2U_2 + ...$ (即 $A = \\sum c_i \\cdot U_i$)<br>
 哈密頓分解：將 H 哈密頓矩陣描述成酋(么正)矩陣的線性組合<br>
 成功機率：LCU 不是 100% 成功的。它有一定的機率測量到輔助位元為 $|0\\rangle$ (成功)，若失敗則得到「垃圾態」。通常需搭配 振幅放大 (Amplitude Amplification) 技術提高成功率。
@@ -767,7 +1887,79 @@ imageSource: 'https://ibco.com.tw/turing-college/%E9%87%8F%E5%AD%90%E8%A1%8C%E8%
             concept: `關鍵字：LCU、泰勒展開、哈密頓量分解<br>
 <br>
 將時間演化算符 $e^{-iHt}$ 進行泰勒級數展開，將其視為一系列 $H$ 的高次項 $H^k$ 的加權總和，並利用 LCU 工具來執行這個巨大的加法。`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; overflow-x: auto; white-space: nowrap; padding-bottom: 10px;">
+    
+    <div style="font-size: 0.9em; font-weight: bold; color: #006400; margin-bottom: 10px;">
+        Taylor Expansion LCU: Simulating e⁻ⁱᴴᵗ
+    </div>
+
+    <div style="display: inline-flex; align-items: center; padding-top: 10px;">
+
+        <div style="text-align: center;">
+            <div style="font-size: 0.9em; color: #B22222;">|0⟩<sub>A</sub></div>
+            <div style="font-size: 0.9em; color: #00008B;">|ψ⟩<sub>S</sub></div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                PREP
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Coeff: √(tᵏ/k!)</span>
+        </div>
+
+        <div>
+            ( ∑ <span style="color: #006400;">√ (tᵏ/k!)</span> <span style="color: #B22222;">|k⟩<sub>A</sub></span> ) 
+            ⊗ <span style="color: #00008B;">|ψ⟩<sub>S</sub></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                SELECT (Hᵏ)
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 60px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Apply (-iH)ᵏ</span>
+        </div>
+
+        <div style="border: 1px dashed #999; padding: 5px; background: #fafafa;">
+            ∑ <span style="color: #006400;">√ (tᵏ/k!)</span> 
+            <span style="color: #B22222;">|k⟩<sub>A</sub></span> 
+            <span style="color: #00008B;">( (-iH)ᵏ |ψ⟩ )<sub>S</sub></span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin: 0 15px;">
+            <div style="border: 1px solid #000; padding: 3px 8px; font-size: 0.8em; background: #fff;">
+                PREP<sup>†</sup>
+            </div>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 40px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+            <span style="font-size: 0.75em; color: #666;">Uncompute</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; margin-right: 15px;">
+            <span style="font-size: 0.8em; margin-bottom: -3px; font-weight: bold;">Measure |0⟩</span>
+            <div style="display: flex; align-items: center; width: 100%;">
+                <div style="height: 1px; background: #000; width: 50px;"></div><div style="font-size: 10px; margin-left: -1px;">▶</div>
+            </div>
+        </div>
+
+        <div style="border: 2px solid #00008B; padding: 5px 10px; border-radius: 5px; background: #f0f8ff;">
+            <span style="font-weight: bold;">|ψ(t)⟩</span> 
+            ≈ ∑ <span style="color: #006400;">( (-it)ᵏ/k! )</span> <span style="color: #00008B;">Hᵏ |ψ⟩</span>
+            <div style="font-size: 0.85em; color: #B22222; margin-top: 3px; border-top: 1px solid #ccc; padding-top: 2px;">
+                = e<sup>-iHt</sup> |ψ⟩
+            </div>
+        </div>
+
+    </div>
+</div>
+`,
             supplement: `1. 泰勒展開：$e^{-iHt}= I - iHt + (-iHt)^2/2! + ... + (-iHt)^n/n!$<br>
 2. 截斷誤差 (Truncation Error)：我們取前 K 項。由於階乘 $k!$ 成長極快，誤差項收斂得非常快 (比 Trotter 快得多)。<br>
 3. 不知情振幅放大 (Oblivious Amplitude Amplification)：這篇論文引入了特殊的振幅放大技術，讓 LCU 的成功率趨近 1。<br>
@@ -832,32 +2024,66 @@ imageSource: 'https://quantumcomputing.stackexchange.com/questions/18197/in-the-
             author: 'Peruzzo et al.',
             goal: '求解分子和材料的基態能量',
             concept: 'VQE是近期量子電腦最重要的應用之一。作為混合量子-古典算法，它結合了量子電腦的態準備能力和古典電腦的優化能力，特別適合當前的NISQ時代量子裝置。',
-            computation: `<strong>核心思想：</strong>使用變分原理<br>
-<br>
-$$E_0 = \\min_{|\\psi\\rangle} \\langle\\psi|H|\\psi\\rangle \\leq \\langle\\psi(\\theta)|H|\\psi(\\theta)\\rangle$$<br>
-<br>
-<strong>算法流程：</strong>
+            computation: `
+<div style="font-family: 'Times New Roman', serif; line-height: 1.6; color: #333; padding: 5px;">
+    
+    <div style="font-weight: bold; font-size: 1.1em; color: #006400; border-bottom: 2px solid #006400; padding-bottom: 5px; margin-bottom: 15px;">
+        VQE 演算法流程解析 (Variational Quantum Eigensolver)
+    </div>
 
-**1. 參數化量子電路（Ansatz）**
+    <div style="margin-bottom: 15px; font-size: 0.95em;">
+        這張圖展示了一個典型的 <strong>量子-古典混合演算法 (Hybrid Quantum-Classical Algorithm)</strong> 迴圈。
+        <br>目標是尋找哈密頓量 <i>H</i> 的基態能量 <i>E₀</i>。整個過程分為兩個主要部分：量子處理器 (QPU) 負責計算期望值，古典處理器 (CPU) 負責優化參數。
+    </div>
 
-$$|\\psi(\\theta)\\rangle = U(\\theta)|0\\rangle$$
+    <div style="margin-bottom: 15px; background: #fdfdfd; padding: 10px; border-radius: 5px; border-left: 4px solid #333;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em; color: #333;">
+            1. 量子子程序 (Quantum Subroutine)
+        </div>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>初始狀態：</strong>輸入全零態 |0⟩<sup>⊗n</sup>。</li>
+            <li><strong>參數化電路 (Ansatz)：</strong>
+                應用一個由參數 <span style="color: #B22222; font-weight: bold;">θ</span> 控制的么正算符 <i>U(θ)</i>。
+                <br><span style="font-size: 0.9em; color: #666;">(如您所述，通常包含 R<sub>y</sub>, R<sub>z</sub> 旋轉閘與糾纏層，目的是在希爾伯特空間中探索可能的特徵態。)</span>
+            </li>
+            <li><strong>試驗態生成：</strong>產生試驗波函數 |ψ(<span style="color: #B22222;">θ</span>)⟩。</li>
+            <li><strong>測量 (Measurement)：</strong>
+                在哈密頓量 <i>H</i> 的各個 Pauli 基底上進行測量，收集統計數據並傳送給古典電腦。
+            </li>
+        </ul>
+    </div>
 
-例如：$U(\\theta) = \\prod_i R_y(\\theta_i) \\text{CNOT}_{i,i+1}$
+    <div style="margin-bottom: 15px; background: #f0f8ff; padding: 10px; border-radius: 5px; border-left: 4px solid #00008B;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em; color: #00008B;">
+            2. 古典優化器 (Classical Optimizer)
+        </div>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>計算期望值 (Expectation Value)：</strong>
+                利用量子測量結果，計算當前參數下的能量期望值：
+                <div style="margin: 5px 0; font-weight: bold;">E = ⟨ψ(θ)| H |ψ(θ)⟩</div>
+            </li>
+            <li><strong>變分原理 (Variational Principle)：</strong>
+                根據變分原理，此期望值 E 永遠大於或等於真實基態能量 E₀。
+            </li>
+            <li><strong>參數更新 (Gradient Descent)：</strong>
+                計算能量對參數的梯度 ∇E，並更新參數以尋找能量極小值：
+                <div style="margin: 5px 0; color: #B22222; font-weight: bold;">θ<sub>new</sub> ← θ<sub>old</sub> - η∇E</div>
+            </li>
+        </ul>
+    </div>
 
-**2. 量子測量能量**
+    <div style="margin-top: 15px; border-top: 1px dashed #999; padding-top: 10px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #eee; padding: 8px; border-radius: 5px;">
+            <span style="font-size: 1.5em;">↻</span>
+            <div>
+                <strong>迭代迴圈 (The Loop)：</strong><br>
+                將新的 <span style="color: #B22222;">θ</span> 傳回量子電路，重複上述步驟，直到能量 E 收斂至最小值 (E ≈ E₀)。
+            </div>
+        </div>
+    </div>
 
-$$E(\\theta) = \\langle\\psi(\\theta)|H|\\psi(\\theta)\\rangle = \\sum_i c_i \\langle P_i \\rangle$$
-
-分解 $H = \\sum_i c_i P_i$（Pauli算符）
-
-**3. 古典優化**
-
-使用梯度下降或其他優化器：
-$$\\theta_{\\text{new}} = \\theta_{\\text{old}} - \\eta \\nabla_{\\theta} E(\\theta)$$
-
-**4. 迭代收斂**
-
-重複步驟2-3直到 $E(\\theta)$ 收斂到最小值`,
+</div>
+`,
             supplement: `<strong>為什麼是混合算法？</strong><br>
 • 量子部分：態準備 + 期望值測量<br>
 • 古典部分：參數優化（梯度計算、更新規則）<br>
@@ -900,14 +2126,88 @@ imageSource: 'https://www.entangletech.tw/lesson/optim-07'
             concept: `1. 絕熱演化：$H(t)= (1-S(t))H_0 + S(t)H_1$，$S(t)=\\begin{cases}0, & t=0 \\\\ 1, & t\\to\\infty\\end{cases}$<br>
 系統從 $H_0$ **緩慢**演化至 $H_1$ 時，系統能量始終處於基態(最低能量)<br>
 2. ...`,
-            computation: '',
+computation: `
+<div style="font-family: 'Times New Roman', serif; line-height: 1.6; color: #333; padding: 5px;">
+    
+    <div style="font-weight: bold; font-size: 1.1em; color: #4B0082; border-bottom: 2px solid #4B0082; padding-bottom: 5px; margin-bottom: 15px;">
+        QAOA 演算法流程解析 (Quantum Approximate Optimization Algorithm)
+    </div>
+
+    <div style="margin-bottom: 15px; font-size: 0.95em;">
+        這張圖展示了 QAOA 處理組合優化問題（如 MaxCut）的標準流程。<br>
+        其核心概念是將連續時間的絕熱演化，離散化為 <i>p</i> 層的參數化電路。
+    </div>
+
+    <div style="margin-bottom: 15px; background: #fdfdfd; padding: 10px; border-radius: 5px; border-left: 4px solid #333;">
+        <div style="font-weight: bold; margin-bottom: 10px; font-size: 1.05em; color: #333;">
+            1. 量子處理器 (Quantum Processor)
+        </div>
+        
+        <ul style="margin: 0; padding-left: 20px;">
+            <li style="margin-bottom: 8px;">
+                <strong>初始化 (Superposition)：</strong><br>
+                所有量子位元從 |0⟩ 開始，經過 Hadamard 閘 (H)，產生所有可能解的均勻疊加態：
+                <div style="margin-top: 2px; color: #555; font-size: 0.9em;">|+⟩<sup>⊗n</sup> = Σ |x⟩ / √2ⁿ</div>
+            </li>
+
+            <li style="margin-bottom: 8px;">
+                <strong>交替演化層 (Levels 1 to p)：</strong><br>
+                電路重複執行 <i>p</i> 次（Level-1 ... Level-p），每一層包含兩個步驟：
+                <div style="display: flex; gap: 10px; margin-top: 5px;">
+                    <div style="background: #e8f5e9; border: 1px solid #4CAF50; padding: 5px; border-radius: 4px; flex: 1;">
+                        <span style="font-weight: bold; color: #006400;">Phase Separator (U<sub>C</sub>)</span><br>
+                        <span style="font-size: 0.9em;">e<sup>-i γₖ H<sub>C</sub></sup></span><br>
+                        <span style="font-size: 0.85em; color: #555;">(綠色區塊：根據問題目標函數 H<sub>C</sub> 引入相位 γ)</span>
+                    </div>
+                    <div style="background: #e3f2fd; border: 1px solid #2196F3; padding: 5px; border-radius: 4px; flex: 1;">
+                        <span style="font-weight: bold; color: #00008B;">Mixer (U<sub>B</sub>)</span><br>
+                        <span style="font-size: 0.9em;">e<sup>-i βₖ H<sub>B</sub></sup></span><br>
+                        <span style="font-size: 0.85em; color: #555;">(藍色區塊：引入橫向場 H<sub>B</sub> 進行混合 β，通常是 R<sub>x</sub>)</span>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <strong>測量 (Measure)：</strong><br>
+                在計算基底 (Z-basis) 測量量子態，得到一個位元串 (Bitstring)，代表一個候選解。
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-bottom: 15px; background: #fff5e6; padding: 10px; border-radius: 5px; border-left: 4px solid #FF8C00;">
+        <div style="font-weight: bold; margin-bottom: 5px; font-size: 1.05em; color: #d35400;">
+            2. 古典電腦 (Classical Computer)
+        </div>
+        <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>計算目標函數 (Objective Evaluation)：</strong>
+                收集多次測量結果，計算平均成本函數值 F<sub>p</sub>(γ, β)。
+            </li>
+            <li><strong>判斷收斂 (Optimization Objective Met?)：</strong>
+                檢查結果是否夠好，或參數變化是否停滯。
+                <br><span style="color: #B22222; font-weight: bold;">Yes (Stop):</span> 輸出最佳解。
+                <br><span style="color: #00008B; font-weight: bold;">No (Loop):</span> 繼續優化。
+            </li>
+            <li><strong>參數更新 (Classical Optimizer)：</strong>
+                使用古典演算法（如 COBYLA, SPSA）調整角度參數 
+                <span style="background: #ffe0b2; padding: 0 4px; border-radius: 3px;">(γ₁, β₁ ... γₚ, βₚ)</span>，
+                並傳回量子處理器進行下一輪迭代。
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 15px; border-top: 1px dashed #999; padding-top: 10px; font-size: 0.9em; color: #666;">
+        <strong>直觀理解：</strong> QAOA 就像是在優化一條「路徑」，試圖找到一組最佳的操作參數 (γ, β)，使得初始的均勻疊加態，能夠最大機率地演化到目標問題的最佳解狀態。
+    </div>
+
+</div>
+`,
             supplement: `與VQE不同，VQE電路可任意設計。QAOA受絕熱計算啟發，使用固定交疊電路架構，用離散步長模擬絕熱演化。<br>
 <br>
 QAOA 將「尋找最低能量」對應到解決實際工程與商業問題，其中 $E_0$ 對應為最低成本，$|\\Phi\\rangle$ 對應為最佳組合：<br>
 QAOA可解決問題可視化：(文氏圖)<br>
 MaxCut (最大切割問題)：將網路節點分成兩群，使切斷的連線數最大化 (應用於晶片佈局、社群分群)。<br>
 • 旅行推銷員問題：物流路徑規劃，尋找最短路徑。<br>
-• 投資組合優化：在風險限制下尋找最大獲利的資產組合。<br>
+• 投資組合優化：在風險限制下尋找最大獲利的資產組合。
 Graph coloring(著色問題)：<br>
 • 基地台頻譜分配<br>
 • 交通流量<br>
@@ -931,7 +2231,7 @@ imageSource: 'https://www.entangletech.tw/lesson/optim-06'
 Oracle (黑盒)：識別正確答案。將目標狀態 $|w\\rangle$ 的相位翻轉 (Phase Flip)，$f(x)=1 \\to -1$。<br>
 擴散算符 (Diffusion Operator)：關於平均值的反射 (Inversion about the mean)。將所有振幅以平均值為中心進行鏡像翻轉，此舉會放大被 Oracle 標記（變負號）的那個項目的振幅。<br>
 幾何旋轉：將搜尋過程視為在「目標態」與「非目標態」構成的 2D 平面上旋轉。`,
-            computation: `<strong>問題：</strong>在 $N$ 個項目中找到滿足條件的項目
+            computation: `<strong>問題：</strong>在 $N$ 個項目中找到滿足條件的項目<br>
 
 <strong>步驟1：</strong>初始化為均勻疊加態
 
@@ -964,7 +2264,85 @@ $$U_s = 2|\\psi\\rangle\\langle\\psi| - I$$
 • $S_\\chi$：標記目標狀態。<br>
 • $\\mathcal{A} S_0 \\mathcal{A}^{-1}$：對初始狀態做反射。<br>
 機率提升：如果原本成功的機率是 $p$，經過 $O(1/\\sqrt{p})$ 次迭代後，成功率可接近 100%。`,
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; padding: 10px; line-height: 1.6;">
+
+    <div style="margin-bottom: 10px;">
+        <span style="color: #00008B; font-weight: bold;">問題：</span> 
+        給定一個能夠以機率 <i>p</i> 產生正確解的演算法算子 <span style="font-family: math; font-weight: bold;">𝒜</span>，將其成功機率放大至接近 1。
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 1：</span> 
+        使用算子 𝒜 初始化狀態 (替代 Grover 的 H<sup>⊗n</sup>)
+        <div style="background: #f9f9f9; padding: 8px; border-left: 3px solid #B22222; margin-top: 5px;">
+            |ψ⟩ = 𝒜|0⟩<sup>⊗n</sup> = sin(θ)|Good⟩ + cos(θ)|Bad⟩
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-top: 2px;">
+            (這創造了一個包含目標解的非均勻疊加態)
+        </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 2：</span> 
+        QAA 迭代 (重複 <i>O(1/√p)</i> 次)
+        
+        <div style="margin-top: 8px; margin-left: 10px;">
+            <span style="font-weight: bold;">a) Oracle 標記 (Phase Flip)：</span>
+            <div style="padding: 5px; font-family: math;">
+                S<sub>χ</sub> = I - 2|Good⟩⟨Good|
+            </div>
+            <span style="font-size: 0.85em; color: #555;">(翻轉目標解的相位，圖中標示為 U<sub>g</sub>)</span>
+        </div>
+
+        <div style="margin-top: 8px; margin-left: 10px;">
+            <span style="font-weight: bold;">b) Generalized Diffusion (廣義擴散)：</span>
+            <div style="padding: 5px; font-family: math; background: #fff0f0; border-radius: 4px;">
+                D = 𝒜 S₀ 𝒜<sup>†</sup>
+            </div>
+            <div style="font-size: 0.85em; color: #B22222;">
+                其中 S₀ = 2|0⟩⟨0| - I (只對零態變號)
+            </div>
+            <span style="font-size: 0.85em; color: #555;">(這就是圖中 𝒜<sup>-1</sup> → S₀ → 𝒜 的由來，這是對「初始態」做反射)</span>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 3：</span> 
+        測量得到目標態，成功機率接近 1
+    </div>
+
+    <div style="border-top: 1px dashed #999; padding-top: 10px;">
+        <div style="font-size: 0.9em; font-weight: bold; margin-bottom: 5px;">Circuit Visualization (Match your image):</div>
+        
+        <div style="display: inline-flex; align-items: center; overflow-x: auto; white-space: nowrap; padding-bottom: 5px;">
+            
+            <div style="border: 1px solid #000; padding: 5px 10px;">𝒜</div>
+            <div style="margin: 0 5px;">→</div>
+
+            <div style="border: 2px dashed #B22222; padding: 5px; background: #fffafa; display: flex; align-items: center;">
+                
+                <div style="border: 1px solid #000; padding: 5px; background: #e0f7fa;">U<sub>g</sub></div>
+                
+                <div style="margin: 0 5px; font-size: 0.8em;">+</div>
+
+                <div style="display: flex; gap: 3px; border: 1px solid #999; padding: 3px; background: #fff;">
+                    <div style="border: 1px solid #000; padding: 2px 5px; font-size: 0.9em;">𝒜<sup>-1</sup></div>
+                    <div style="border: 1px solid #000; padding: 2px 5px; font-size: 0.9em; background: #f0f0f0;">S₀</div>
+                    <div style="border: 1px solid #000; padding: 2px 5px; font-size: 0.9em;">𝒜</div>
+                </div>
+
+            </div>
+            <div style="margin-left: 5px; font-size: 0.8em; color: #B22222;">× m times</div>
+            
+            <div style="margin: 0 5px;">→</div>
+            <div style="border: 1px solid #000; padding: 2px 8px; border-radius: 10px;">Measure</div>
+
+        </div>
+    </div>
+
+</div>
+`,
             supplement: `Oblivious AA：前幾題提到的「不知情振幅放大」，是 AA 的一個變體，專門用於哈密頓模擬等 Unitary 操作的機率恢復。<br>
 <br>
 <strong>文獻：</strong>"Quantum Amplitude Amplification and Estimation"(2000)`,
@@ -981,7 +2359,81 @@ $$U_s = 2|\\psi\\rangle\\langle\\psi| - I$$
 Grover 算符 $Q$ 的特徵值與目標機率 $p$ 有關 ($\\lambda = e^{\\pm i 2\\theta}, \\sin^2\\theta = p$)。<br>
 相位估計：使用 QPE (Quantum Phase Estimation) 來估計 Grover 算符的特徵相位 $\\theta$。<br>
 反推機率：由測得的 $\\theta$ 推算出振幅大小 $a$ 或機率 $p$。`,
-            computation: '',
+            computation: `
+<div style="font-family: 'Times New Roman', serif; padding: 10px; line-height: 1.6;">
+
+    <div style="font-size: 1.1em; font-weight: bold; color: #4B0082; margin-bottom: 15px; border-bottom: 2px solid #4B0082; padding-bottom: 5px;">
+        QAE 運算過程解析 (QPE on Grover Operator)
+    </div>
+
+    <div style="margin-bottom: 15px; font-size: 0.9em; background: #f0f8ff; padding: 8px; border-radius: 5px;">
+        <span style="font-weight: bold; color: #00008B;">電路結構：</span> 
+        分為上方的 <strong>估計暫存器 (m qubits)</strong> 與下方的 <strong>模擬暫存器 (n qubits)</strong>。<br>
+        本質上就是標準的 Phase Estimation，只是輸入的 Unitary 變成了 Grover Operator <span style="font-family: math;">Q</span>。
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 1：</span> 雙重初始化
+        <div style="display: flex; gap: 20px; margin-top: 5px; margin-left: 10px;">
+            <div>
+                <span style="font-weight: bold; color: #666;">Top (j):</span> 
+                H<sup>⊗m</sup>|0⟩ = <span style="font-family: math;">∑ |k⟩</span>
+                <br><span style="font-size: 0.8em; color: #999;">(時間/計數基底)</span>
+            </div>
+            <div>
+                <span style="font-weight: bold; color: #666;">Bottom (ψ):</span> 
+                <span style="font-family: math;">|ψ⟩ = 𝒜|0⟩</span>
+                <br><span style="font-size: 0.8em; color: #999;">(包含目標振幅的狀態)</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 2：</span> 
+        受控 Grover 演化 (Controlled-Q Powers)
+        <div style="padding: 8px; border-left: 3px solid #4B0082; background: #fdfdfd; margin-top: 5px;">
+            圖中顯示： <span style="font-family: math; font-weight: bold;">Q<sup>2⁰</sup>, Q<sup>2¹</sup>, ... Q<sup>2ᵐ⁻¹</sup></span>
+        </div>
+        <div style="margin-top: 5px; margin-left: 10px; font-size: 0.9em;">
+            • 利用 <span style="color: #B22222;">Phase Kickback</span> 機制。<br>
+            • Grover 算子 Q 的特徵值為 <span style="font-family: math;">e<sup>±i2θ</sup></span>。<br>
+            • 經過此步驟，相位資訊 <span style="font-family: math;">e<sup>i(k·2θ)</sup></span> 被踢回並累積在上方暫存器中。
+        </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 3：</span> 
+        逆傅立葉變換 (Inverse QFT)
+        <div style="padding: 8px; margin-top: 5px; font-family: math; background: #fff0f0; border-radius: 4px;">
+            ℱ<sup>†</sup><sub>m</sub> (Phase State) ⟶ |y⟩
+        </div>
+        <div style="font-size: 0.85em; color: #555; margin-top: 2px;">
+            (圖中標示為 ℱ<sup>†</sup><sub>m</sub>，將頻率域的相位資訊解碼為整數 y)
+        </div>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <span style="color: #00008B; font-weight: bold;">步驟 4：</span> 
+        測量與估算 (Measurement)
+    </div>
+    <div style="border: 2px dashed #999; padding: 10px; background: #fafafa; border-radius: 5px;">
+        <div style="font-family: math; font-size: 1.1em; text-align: center; margin-bottom: 8px;">
+            y ≈ (2θ / 2π) · 2<sup>m</sup>
+        </div>
+        <div style="border-top: 1px solid #ccc; padding-top: 8px;">
+            <strong>最終結果：</strong> 推算振幅機率 <i>p</i>
+            <div style="color: #B22222; font-weight: bold; text-align: center; margin-top: 5px; font-size: 1.2em;">
+                p = sin²(θ) ≈ sin²(π · y / 2<sup>m</sup>)
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+        <strong>直觀理解：</strong> QAE 就像是用「量子時鐘 (m qubits)」去計時 Grover 搜索旋轉的速度。旋轉速度 (θ) 越快，代表目標解越多 (機率 p 越高)。
+    </div>
+
+</div>
+`,
             supplement: `原本計算機率的方式，是使用多次測量統計結果。AE將振幅資訊轉換為相位資訊並測出。<br>
 古典需要 $N$ 次採樣才能達到某個精度，AE 只需要 $\\sqrt{N}$ 次運算 (Grover 運算子)。<br>
 <br>
@@ -1010,66 +2462,114 @@ imageSource: 'https://www.nature.com/articles/s41598-022-15093-x'
         // 通訊協議
         '不可複製原理': {
             name: '量子不可複製原理',
-            goal: '證明量子態無法完美複製',
-            concept: '量子力學基本定理',
+            author: 'William K. Wootters, Wojciech H. Zurek, Dennis Dieks',
+            concept: '量子力學基本定理，證明量子態無法完美複製',
             circuit: '理論證明',
-            process: '么正演化的線性性質'
+            process: '么正演化的線性性質<br><strong>文獻：</strong><br>A single quantum cannot be cloned<strong> Nature 299, 802–803 (1982)</strong><br>Dieks: Communication by EPR devices<strong> Physics Letters A 92, 271 (1982)</strong>',
+            imageSource: 'https://bayareanotes.com/no-cloning-theorem/'
         },
         '共軛編碼': {
             name: '共軛編碼',
+            author: 'Stephen Wiesner',
             goal: '量子密碼學基礎',
             concept: '使用非正交基底編碼',
             circuit: '量子電路圖示意',
-            process: '隨機基底選擇 + 測量'
+            process: '隨機基底選擇 + 測量<br><strong>文獻：</strong>Conjugate Coding<br><strong> SIGACT News 15, 78–88 (1983)</strong>',
+            imageSource: ''
         },
         'BB84': {
             name: 'BB84 Protocol',
-            goal: '量子密鑰分發',
-            concept: '利用量子態不可複製性保證安全',
+            author: 'Charles H. Bennett, Gilles Brassard',
+            concept: '量子密鑰分發，利用量子態不可複製原理保證安全',
             circuit: '量子電路圖示意',
-            process: '隨機基底測量 + 公開比對 + 錯誤檢測'
+            process: `Alice(發送者)/ Bob(接收者)/ Eve(竊聽者)<br>
+<br>
+<strong>定義：</strong>+方向的 |(直)=0, -(橫) = 1； X方向的 /=0, \\ = 1<br>
+<br>
+<strong>流程：</strong><br>
+<strong>(發送)</strong><br>
+<strong>Step 1：</strong>Alice 隨機產生一組0/1序列 (隱密)<br>
+<strong>Step 2：</strong>Alice 使用任意 0={|,/}, 1={-,\\} 產生上述序列並發送量子態給Bob (使用+/X隱密；發送量子公開)<br>
+<strong>(隨機基底測量)</strong><br>
+<strong>Step 3：</strong>Bob使用{+, X}基底測量得到一組通過0/1序列<br>
+<strong>(公開比對)</strong><br>
+<strong>Step 4：</strong>Bob將使用的序列公開告訴Alice (公開)<br>
+<strong>Step 5：</strong>Alice比對， Bob使用的+/X序列與 Alice當初產生0/1時使用的+/X序列哪些相同 (公開)<br>
+<strong>(錯誤檢測)</strong><br>
+<strong>Last：</strong>將使用+/X序列相異的移除，相同的部份其0/1序列作為密鑰使用。<br>
+<br>
+* Eve 竊聽將導致 Bob成功率大大降低，可及時發現是否被竊聽(可自行推演練習)。<br>
+<br>
+<strong>文獻：</strong><br>
+Quantum cryptography: Public key distribution and coin tossing<strong>Proc. IEEE Int. Conf. on Computers, Systems & Signal Processing (Bangalore, 1984)</strong>`,
+            imageSource: 'https://www.researchgate.net/figure/The-Principle-of-QC-According-to-the-BB84-Protocol_fig6_305768369'
         },
         'E91': {
             name: 'E91 Protocol',
+            author: 'Artur K. Ekert',
             goal: '基於糾纏的量子密鑰分發',
             concept: '利用Bell不等式檢測竊聽',
             circuit: '量子電路圖示意',
-            process: 'EPR對分發 + Bell測試'
+            process: 'EPR對分發 + Bell測試<br><strong>文獻：</strong><br>Quantum cryptography based on Bell’s theorem<strong>Physical Review Letters 67, 661 (1991)</strong>',
+            imageSource: ''
         },
         'DI-QKD': {
             name: 'Device-Independent QKD',
+            author: 'Antonio Acín, Nicolas Gisin, Lluis Masanes et al.',
             goal: '裝置無關量子密鑰分發',
             concept: '不信任測量裝置的安全協議',
             circuit: '量子電路圖示意',
-            process: 'Bell不等式 + 隱私放大'
+            process: 'Bell不等式 + 隱私放大<br><strong>文獻：</strong><br>Device-independent security of quantum cryptography against collective attacks<strong>Physical Review Letters 98, 230501 (2007)</strong>',
+            imageSource: ''
         },
         'B92': {
             name: 'B92 Protocol',
+            author: 'Charles H. Bennett',
             goal: '簡化的量子密鑰分發',
             concept: '僅使用兩個非正交態',
             circuit: '量子電路圖示意',
-            process: '簡化版BB84'
+            process: '簡化版BB84<br><strong>文獻：</strong><br>',
+            imageSource: 'Quantum cryptography using any two nonorthogonal states<strong>Physical Review Letters 68, 3121 (1992)</strong>'
         },
         'Supercoding': {
-            name: 'Superdense Coding',
-            goal: '超密集編碼',
-            concept: '傳送1個量子位元攜帶2個經典位元',
-            circuit: '量子電路圖示意',
-            process: 'EPR對 + 本地操作 + Bell測量'
-        },
+    name: 'Superdense Coding 超密編碼',
+    author: 'Charles H. Bennett, Stephen J. Wiesner',
+    concept: '超密集編碼，只傳送一個實體量子位元即可傳遞4種資訊',
+    circuit: '量子電路圖示意',
+    process: `<strong>紅線上方：</strong>Alice(傳送者)<br><strong>紅線下方：</strong>Bob(接收者) *兩人相隔兩地<br>
+<br>
+<strong>Step 1：</strong>產生任意2 qubits貝爾態 Ex: β₀₀=1/√2(|00⟩+|11⟩)，並將 1 個qubit給Alice， 另 1 個給Bob。<br>
+<strong>Step 2：</strong>Alice將要發送的2 bits訊息{ab} = {00/ 01/ 10/ 11} 透過Controlled-X、Controlled-Z 施加於qubit<br>
+<strong>Step 3：</strong>Alice 將編碼後的<strong> 1 顆qubit</strong>發送給 Bob<br>
+<strong>Step 4：</strong>Bob 將接收到的 qubit與原本手中的qubit，執行C-NOT、H 閘操作即可獲取兩位元經典資訊<br>
+<br>
+<strong>文獻：</strong><br>Communication via one- and two-particle operators on Einstein-Podolsky-Rosen states<strong>Physical Review Letters 69, 2881 (1992)</strong>`,
+    story: '待補充',
+    imageSource: 'https://www.researchgate.net/figure/Superdense-coding-circuit_fig3_265853605'
+},
         'Teleporting': {
-            name: 'Quantum Teleportation',
-            goal: '量子態傳輸',
-            concept: '利用糾纏態傳送量子訊息',
-            circuit: '量子電路圖示意',
-            process: 'Bell測量 + 經典通訊 + 么正操作'
-        },
+    name: 'Quantum Teleportation 隱形傳態',
+    author: 'Charles H. Bennett, Gilles Brassard, Claude Crépeau, Richard Jozsa, Asher Peres, William K. Wootters',
+    concept: '量子態傳輸，利用糾纏態透過古典方式傳送量子態訊息',
+    circuit: '量子電路圖示意',
+    process: `<strong>紅線上方：</strong>Alice(傳送者)<br><strong>紅線下方：</strong>Bob(接收者) *兩人相隔兩地<br>
+<br>
+<strong>Step 1：</strong>產生任意2 qubits貝爾態 Ex: β₀₀=1/√2(|00⟩+|11⟩)，並將 1 個qubit給Alice， 另 1 個給Bob。<br>
+<strong>Step 2：</strong>Alice 將手上另一顆要發送給Bob的量子態|ψ⟩，和手中糾纏qubit，一起經過 C-NOT和H閘作用<br>
+<strong>Step 3：</strong>作用後 Alice再測量手上兩顆 qubits測量得到結果{00/ 01/ 10/ 11}之一<br>
+<strong>Step 4：</strong>Alice 將測量結果透過古典方式告訴 Bob，遠方的 Bob接收到古典訊息後，將結果對手中 qubit做相應的Controlled-X、Controlled-Z操作，即可獲得量子態|ψ⟩<br>
+<br>
+<strong>文獻：</strong><br>Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels<strong>Physical Review Letters 70, 1895 (1993)</strong>`,
+    imageSource: 'https://www.researchgate.net/figure/Circuit-implementing-the-quantum-teleportation-protocol-The-formal-specification-of-the_fig4_347965429'
+},
         'Entanglement': {
             name: 'Entanglement Swapping',
+            author: 'Michael Żukowski, Anton Zeilinger, Marek A. Horne, Artur K. Ekert',
             goal: '糾纏交換',
             concept: '遠程建立糾纏態',
             circuit: '量子電路圖示意',
-            process: 'Bell測量 + 糾纏轉移'
+            process: 'Bell測量 + 糾纏轉移<br><strong>文獻：</strong><br>“Event-ready-detectors” Bell experiment via entanglement swapping<br><strong>Physical Review Letters 71, 4287 (1993)</strong>',
+            imageSource: ''
         },
         
         // ========== 集大成者 ==========
@@ -1095,20 +2595,20 @@ $$\\tilde{U} = \\begin{pmatrix} P(A) & \\cdot \\\\ \\cdot & \\cdot \\end{pmatrix
 
 $$U(\\Phi) = e^{i\\phi_0 Z} \\prod_{k=1}^{d} W e^{i\\phi_k Z}$$
 
-可以實現任意度數 $d$ 的多項式變換。
-
+可以實現任意度數 $d$ 的多項式變換。<br>
+<br>
 <strong>統一表示：</strong>
 
-幾乎所有量子算法都可以歸約為：
-1. 將問題矩陣進行區塊編碼
-2. 選擇適當的多項式 $P$
-3. 應用QSVT實現 $P(A)$`,
+幾乎所有量子算法都可以歸約為：<br>
+Step 1. 將問題矩陣進行區塊編碼<br>
+Step 2. 選擇適當的多項式 $P$<br>
+Step 3. 應用QSVT實現 $P(A)$`,
             supplement: `QSVT框架統整了先前所有算法(古典電腦結合的除外)。
 舊演算法為QSVT電路架構的特例，例如改變輸入狀態、旋轉閘的角度組合等，就能達成某個演算法的運算。
 
 萬能鑰匙：Grover 是 QSVT 的 $P(x)$ 為低階多項式特例；HHL 是 $P(x)=1/x$ 的特例；哈密頓模擬是 $P(x)=e^{-ixt}$ 的特例。
-最優性：已經證明 QSVT 在查詢複雜度 (Query Complexity) 上達到了理論極限。
-
+最優性：已經證明 QSVT 在查詢複雜度 (Query Complexity) 上達到了理論極限。<br>
+<br>
 <strong>文獻：</strong>"Quantum singular value transformation and beyond: exponential improvements for quantum matrix arithmetics" (2019)`,
             story: `比喻來說，先前的演算法屬於ASIC，每個算法對應一組電路。而QSVT為量子版FPGA，同樣電路架構改變參數即可運算不同演算法。
 
