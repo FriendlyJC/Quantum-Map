@@ -2237,7 +2237,7 @@ Oracle (黑盒)：識別正確答案。將目標狀態 $|w\\rangle$ 的相位翻
 
 $$|\\psi\\rangle = H^{\\otimes n}|0\\rangle^{\\otimes n} = \\frac{1}{\\sqrt{N}}\\sum_{x=0}^{N-1}|x\\rangle$$
 
-<strong>步驟2：</strong>Grover迭代（重複 $O(\\sqrt{N})$ 次）
+<strong>步驟2：</strong>Grover迭代{Oracle + Diffusion}（重複 $O(\\sqrt{N})$ 次）<br>
 
 a) Oracle標記：
 $$U_f|x\\rangle = \\begin{cases} -|x\\rangle & \\text{if } f(x)=1 \\\\ |x\\rangle & \\text{if } f(x)=0 \\end{cases}$$
@@ -2634,4 +2634,5 @@ quantumData.categories.forEach(category => {
         });
     });
 });
+
 
