@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>量子電腦演化史地圖</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- MathJax 数学公式支持 -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -21,13 +22,14 @@
         };
     </script>
 </head>
+
 <body>
     <div id="app">
         <!-- 主画布容器 -->
         <div id="canvas-container">
             <canvas id="quantum-map"></canvas>
         </div>
-        
+
         <!-- 详情面板 -->
         <div id="detail-panel" class="detail-panel hidden">
             <div class="panel-header">
@@ -38,15 +40,41 @@
                 <!-- 内容将动态生成 -->
             </div>
         </div>
-        
+
         <!-- 控制说明 -->
         <div class="controls-hint">
             <p>🖱️ 拖曳地圖移動 | 🔍 滾輪縮放 | 👆 點擊標題/節點查看詳情</p>
         </div>
     </div>
-    
-    <script src="data.js"></script>
+
+    <!-- 模組化資料檔案 -->
+    <!-- 主標題與分類介紹 -->
+    <script src="data/map.js"></script>
+
+    <!-- 演算法與核心 -->
+    <script src="data/Algorithm_CoreTool/CoreTool.js"></script>
+    <script src="data/Algorithm_CoreTool/Feature_extraction/Feature.js"></script>
+    <script src="data/Algorithm_CoreTool/Hamiltonian_Simulation/Hamiltonian.js"></script>
+    <script src="data/Algorithm_CoreTool/Amplification/Amplification.js"></script>
+
+    <!-- 通訊協議 -->
+    <script src="data/Protocol/Protocol.js"></script>
+    <script src="data/Protocol/Cryptography/Cryptography.js"></script>
+    <script src="data/Protocol/Communication/Communication.js"></script>
+
+    <!-- 糾錯與容錯 -->
+    <script src="data/Correction_Tolerance/Correction.js"></script>
+    <script src="data/Correction_Tolerance/Error_Correction/ErrorCode.js"></script>
+    <script src="data/Correction_Tolerance/Fault_Tolerance/Tolerance.js"></script>
+
+    <!-- 硬體 -->
+    <script src="data/Hardware/Hardware.js"></script>
+    <script src="data/Hardware/Adiabatic/Adiabatic.js"></script>
+    <script src="data/Hardware/GateBased/GateBased.js"></script>
+
+    <!-- 資料載入器 - 組合成 quantumData -->
+    <script src="data/dataLoader.js"></script>
     <script src="app.js"></script>
 </body>
-</html>
 
+</html>
